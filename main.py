@@ -20,9 +20,9 @@ app.add_middleware(
 # Databricks config
 DATABRICKS_HOST = os.getenv("DATABRICKS_SERVER_HOSTNAME")
 DATABRICKS_TOKEN = os.getenv("DATABRICKS_TOKEN")
-DATABRICKS_WAREHOUSE_ID = os.getenv("DATABRICKS_WAREHOUSE_ID")  # Just the ID, not full path
+DATABRICKS_WAREHOUSE_ID = os.getenv("DATABRICKS_WAREHOUSE_ID")
 
-# Models
+# Models (Pydantic v1 compatible)
 class Change(BaseModel):
     change_type: str
     title: str
@@ -31,6 +31,19 @@ class Change(BaseModel):
     facility_types: str
     safe_for_use: bool
     discovered_date: str
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "change_type": "entirely_new",
+                "title": "Sample Change",
+                "url": "https://example.com",
+                "impact_level": "High",
+                "facility_types": "hospital",
+                "safe_for_use": True,
+                "discovered_date": "2025-01-01"
+            }
+        }
 
 class WeeklySummary(BaseModel):
     total_changes: int
@@ -38,9 +51,9 @@ class WeeklySummary(BaseModel):
     new_documents: int
     critical_changes: int
 
-# Helper function to execute SQL via REST API
+# Helper function
 async def execute_sql(query: str):
-    """Execute SQL using Databricks SQL Statement API"""
+    """Execute SQL via Databricks REST API"""
     
     url = f"https://{DATABRICKS_HOST}/api/2.0/sql/statements"
     
@@ -66,13 +79,12 @@ async def execute_sql(query: str):
         
         result = response.json()
         
-        # Check if statement completed
         if result.get("status", {}).get("state") == "SUCCEEDED":
             return result.get("result", {}).get("data_array", [])
         else:
             raise HTTPException(
                 status_code=500,
-                detail=f"Query failed: {result.get('status', {}).get('error', 'Unknown error')}"
+                detail=f"Query failed: {result.get('status', {})}"
             )
 
 # Endpoints
@@ -81,23 +93,15 @@ def root():
     return {
         "status": "healthy",
         "service": "Infervia API",
-        "version": "1.0.0",
-        "timestamp": datetime.now().isoformat()
+        "version": "1.0.0"
     }
 
 @app.get("/api/changes/weekly", response_model=List[Change])
 async def get_weekly_changes(limit: int = 20):
-    """Get this week's changes"""
-    
     query = f"""
         SELECT 
-            change_type,
-            title,
-            url,
-            impact_level,
-            facility_types,
-            safe_for_use,
-            discovered_date
+            change_type, title, url, impact_level,
+            facility_types, safe_for_use, discovered_date
         FROM infervia.weekly_changes
         WHERE discovered_date >= date_sub(current_date(), 7)
         ORDER BY discovered_date DESC
@@ -121,15 +125,11 @@ async def get_weekly_changes(limit: int = 20):
         
         return changes
         
-    except HTTPException:
-        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/summary/weekly", response_model=WeeklySummary)
 async def get_weekly_summary():
-    """Get weekly summary"""
-    
     query = """
         SELECT 
             COUNT(*) as total,
@@ -152,12 +152,10 @@ async def get_weekly_summary():
         }
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/alerts/critical")
 async def get_critical_alerts():
-    """Get critical alerts"""
-    
     query = """
         SELECT title, url, change_type, impact_level, discovered_date
         FROM infervia.weekly_changes
@@ -183,7 +181,7 @@ async def get_critical_alerts():
         return {"alerts": alerts, "count": len(alerts)}
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/health")
 def health():
