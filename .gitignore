@@ -1,5 +1,5 @@
 # .gitignore
-.env
+pyvenv.cfg
 __pycache__/
 *.pyc
 .DS_Store
