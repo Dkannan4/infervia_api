@@ -1,17 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 import httpx
 import os
+import json
 from datetime import datetime
 
-app = FastAPI(title="Infervia API", version="1.0.0")
+app = FastAPI(title="Infervia API", version="2.0.0")
 
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://infervia-frontend-g935.vercel.app", "http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,39 +23,53 @@ DATABRICKS_HOST = os.getenv("DATABRICKS_SERVER_HOSTNAME")
 DATABRICKS_TOKEN = os.getenv("DATABRICKS_TOKEN")
 DATABRICKS_WAREHOUSE_ID = os.getenv("DATABRICKS_WAREHOUSE_ID")
 
-# Models (Pydantic v1 compatible)
-class Change(BaseModel):
-    change_type: str
+# Pydantic Models
+class RegulatoryChange(BaseModel):
+    document_id: int
     title: str
     url: str
+    source: str
+    date: Optional[str]
+    change_type: str
     impact_level: str
-    facility_types: str
+    facility_types: Optional[str]
+    affected_departments: Optional[str]
+    requires_action: bool
     safe_for_use: bool
     discovered_date: str
+    clinical_analysis: Optional[Dict[str, Any]] = None
+    financial_analysis: Optional[Dict[str, Any]] = None
+    compliance_analysis: Optional[Dict[str, Any]] = None
     
     class Config:
         schema_extra = {
             "example": {
+                "document_id": 1,
+                "title": "CMS Updates Medicare Advantage Quality Measures",
+                "url": "https://cms.gov/...",
+                "source": "cms_newsroom",
+                "date": "2025-01-01",
                 "change_type": "entirely_new",
-                "title": "Sample Change",
-                "url": "https://example.com",
                 "impact_level": "High",
-                "facility_types": "hospital",
+                "facility_types": "hospital,clinic",
+                "affected_departments": "Compliance,Clinical",
+                "requires_action": True,
                 "safe_for_use": True,
                 "discovered_date": "2025-01-01"
             }
         }
 
-class WeeklySummary(BaseModel):
+class DashboardStats(BaseModel):
     total_changes: int
-    high_impact_count: int
-    new_documents: int
-    critical_changes: int
+    high_impact: int
+    requires_action: int
+    new_this_week: int
+    by_source: Dict[str, int]
+    by_impact: Dict[str, int]
 
 # Helper function
 async def execute_sql(query: str):
     """Execute SQL via Databricks REST API"""
-    
     url = f"https://{DATABRICKS_HOST}/api/2.0/sql/statements"
     
     headers = {
@@ -87,23 +102,92 @@ async def execute_sql(query: str):
                 detail=f"Query failed: {result.get('status', {})}"
             )
 
+def safe_json_parse(json_string):
+    """Safely parse JSON string, return None if invalid"""
+    if not json_string:
+        return None
+    try:
+        return json.loads(json_string)
+    except:
+        return None
+
 # Endpoints
 @app.get("/")
 def root():
     return {
         "status": "healthy",
         "service": "Infervia API",
-        "version": "1.0.0"
+        "version": "2.0.0",
+        "endpoints": [
+            "/api/changes/recent",
+            "/api/changes/high-impact",
+            "/api/stats/dashboard",
+            "/api/changes/{document_id}"
+        ]
     }
 
-@app.get("/api/changes/weekly", response_model=List[Change])
-async def get_weekly_changes(limit: int = 20):
+@app.get("/health")
+def health():
+    return {"status": "ok", "timestamp": datetime.now().isoformat()}
+
+@app.get("/api/changes/recent", response_model=List[RegulatoryChange])
+async def get_recent_changes(limit: int = 20, days: int = 30):
+    """Get recent regulatory changes"""
     query = f"""
         SELECT 
-            change_type, title, url, impact_level,
-            facility_types, safe_for_use, discovered_date
+            document_id, title, url, source, date,
+            change_type, impact_level, facility_types,
+            affected_departments, requires_action, safe_for_use,
+            discovered_date, clinical_analysis_json,
+            financial_analysis_json, compliance_analysis_json
         FROM infervia.weekly_changes
-        WHERE discovered_date >= date_sub(current_date(), 7)
+        WHERE discovered_date >= date_sub(current_date(), {days})
+        ORDER BY discovered_date DESC, document_id DESC
+        LIMIT {limit}
+    """
+    
+    try:
+        rows = await execute_sql(query)
+        
+        changes = []
+        for row in rows:
+            change = {
+                "document_id": row[0] or 0,
+                "title": row[1] or "Untitled",
+                "url": row[2] or "",
+                "source": row[3] or "unknown",
+                "date": str(row[4]) if row[4] else None,
+                "change_type": row[5] or "unknown",
+                "impact_level": row[6] or "Unknown",
+                "facility_types": row[7],
+                "affected_departments": row[8],
+                "requires_action": bool(row[9]),
+                "safe_for_use": bool(row[10]),
+                "discovered_date": str(row[11]) if row[11] else "",
+                "clinical_analysis": safe_json_parse(row[12]),
+                "financial_analysis": safe_json_parse(row[13]),
+                "compliance_analysis": safe_json_parse(row[14])
+            }
+            changes.append(change)
+        
+        return changes
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/changes/high-impact", response_model=List[RegulatoryChange])
+async def get_high_impact_changes(limit: int = 10):
+    """Get high-impact changes requiring action"""
+    query = f"""
+        SELECT 
+            document_id, title, url, source, date,
+            change_type, impact_level, facility_types,
+            affected_departments, requires_action, safe_for_use,
+            discovered_date, clinical_analysis_json,
+            financial_analysis_json, compliance_analysis_json
+        FROM infervia.weekly_changes
+        WHERE impact_level = 'High' 
+        AND requires_action = true
         ORDER BY discovered_date DESC
         LIMIT {limit}
     """
@@ -113,76 +197,109 @@ async def get_weekly_changes(limit: int = 20):
         
         changes = []
         for row in rows:
-            changes.append({
-                "change_type": row[0] or "unknown",
+            change = {
+                "document_id": row[0] or 0,
                 "title": row[1] or "Untitled",
                 "url": row[2] or "",
-                "impact_level": row[3] or "Unknown",
-                "facility_types": row[4] or "",
-                "safe_for_use": bool(row[5]),
-                "discovered_date": str(row[6]) if row[6] else ""
-            })
+                "source": row[3] or "unknown",
+                "date": str(row[4]) if row[4] else None,
+                "change_type": row[5] or "unknown",
+                "impact_level": row[6] or "Unknown",
+                "facility_types": row[7],
+                "affected_departments": row[8],
+                "requires_action": bool(row[9]),
+                "safe_for_use": bool(row[10]),
+                "discovered_date": str(row[11]) if row[11] else "",
+                "clinical_analysis": safe_json_parse(row[12]),
+                "financial_analysis": safe_json_parse(row[13]),
+                "compliance_analysis": safe_json_parse(row[14])
+            }
+            changes.append(change)
         
         return changes
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/summary/weekly", response_model=WeeklySummary)
-async def get_weekly_summary():
+@app.get("/api/stats/dashboard", response_model=DashboardStats)
+async def get_dashboard_stats():
+    """Get dashboard statistics"""
     query = """
         SELECT 
             COUNT(*) as total,
             COUNT(CASE WHEN impact_level = 'High' THEN 1 END) as high_impact,
-            COUNT(CASE WHEN change_type = 'entirely_new' THEN 1 END) as new_docs,
-            COUNT(CASE WHEN change_type IN ('requirements_added', 'deadline_changed') THEN 1 END) as critical
+            COUNT(CASE WHEN requires_action = true THEN 1 END) as requires_action,
+            COUNT(CASE WHEN discovered_date >= date_sub(current_date(), 7) THEN 1 END) as new_this_week
         FROM infervia.weekly_changes
-        WHERE discovered_date >= date_sub(current_date(), 7)
+    """
+    
+    by_source_query = """
+        SELECT source, COUNT(*) as count
+        FROM infervia.weekly_changes
+        GROUP BY source
+    """
+    
+    by_impact_query = """
+        SELECT impact_level, COUNT(*) as count
+        FROM infervia.weekly_changes
+        GROUP BY impact_level
     """
     
     try:
+        # Main stats
         rows = await execute_sql(query)
-        row = rows[0] if rows else [0, 0, 0, 0]
+        main_stats = rows[0] if rows else [0, 0, 0, 0]
+        
+        # By source
+        source_rows = await execute_sql(by_source_query)
+        by_source = {row[0]: row[1] for row in source_rows}
+        
+        # By impact
+        impact_rows = await execute_sql(by_impact_query)
+        by_impact = {row[0]: row[1] for row in impact_rows}
         
         return {
-            "total_changes": row[0] or 0,
-            "high_impact_count": row[1] or 0,
-            "new_documents": row[2] or 0,
-            "critical_changes": row[3] or 0
+            "total_changes": main_stats[0] or 0,
+            "high_impact": main_stats[1] or 0,
+            "requires_action": main_stats[2] or 0,
+            "new_this_week": main_stats[3] or 0,
+            "by_source": by_source,
+            "by_impact": by_impact
         }
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/alerts/critical")
-async def get_critical_alerts():
-    query = """
-        SELECT title, url, change_type, impact_level, discovered_date
+@app.get("/api/changes/{document_id}")
+async def get_change_detail(document_id: int):
+    """Get detailed information about a specific change"""
+    query = f"""
+        SELECT *
         FROM infervia.weekly_changes
-        WHERE impact_level = 'High'
-        AND discovered_date >= date_sub(current_date(), 7)
-        ORDER BY discovered_date DESC
-        LIMIT 10
+        WHERE document_id = {document_id}
     """
     
     try:
         rows = await execute_sql(query)
         
-        alerts = []
-        for row in rows:
-            alerts.append({
-                "title": row[0],
-                "url": row[1],
-                "change_type": row[2],
-                "impact_level": row[3],
-                "discovered_date": str(row[4])
-            })
+        if not rows:
+            raise HTTPException(status_code=404, detail="Change not found")
         
-        return {"alerts": alerts, "count": len(alerts)}
+        row = rows[0]
         
+        # Map all columns (adjust indices based on your table structure)
+        return {
+            "document_id": row[0],
+            "title": row[1],
+            "url": row[2],
+            "full_details": "Available in detailed view"
+        }
+        
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
