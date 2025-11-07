@@ -37,27 +37,12 @@ class RegulatoryChange(BaseModel):
     requires_action: bool
     safe_for_use: bool
     discovered_date: str
+    analysis_timestamp: Optional[str] = None
+    change_analysis: Optional[Dict[str, Any]] = None
     clinical_analysis: Optional[Dict[str, Any]] = None
     financial_analysis: Optional[Dict[str, Any]] = None
     compliance_analysis: Optional[Dict[str, Any]] = None
-    
-    class Config:
-        schema_extra = {
-            "example": {
-                "document_id": 1,
-                "title": "CMS Updates Medicare Advantage Quality Measures",
-                "url": "https://cms.gov/...",
-                "source": "cms_newsroom",
-                "date": "2025-01-01",
-                "change_type": "entirely_new",
-                "impact_level": "High",
-                "facility_types": "hospital,clinic",
-                "affected_departments": "Compliance,Clinical",
-                "requires_action": True,
-                "safe_for_use": True,
-                "discovered_date": "2025-01-01"
-            }
-        }
+    quality_control: Optional[Dict[str, Any]] = None
 
 class DashboardStats(BaseModel):
     total_changes: int
@@ -103,13 +88,13 @@ async def execute_sql(query: str):
             )
 
 def safe_json_parse(json_string):
-    """Safely parse JSON string, return None if invalid"""
+    """Safely parse JSON string, return empty dict if invalid"""
     if not json_string:
-        return None
+        return {}
     try:
         return json.loads(json_string)
     except:
-        return None
+        return {}
 
 # Endpoints
 @app.get("/")
@@ -132,14 +117,16 @@ def health():
 
 @app.get("/api/changes/recent", response_model=List[RegulatoryChange])
 async def get_recent_changes(limit: int = 20, days: int = 30):
-    """Get recent regulatory changes"""
+    """Get recent regulatory changes with all analysis"""
     query = f"""
         SELECT 
             document_id, title, url, source, date,
             change_type, impact_level, facility_types,
             affected_departments, requires_action, safe_for_use,
-            discovered_date, clinical_analysis_json,
-            financial_analysis_json, compliance_analysis_json
+            discovered_date, analysis_timestamp,
+            change_analysis_json, clinical_analysis_json,
+            financial_analysis_json, compliance_analysis_json,
+            quality_control_json
         FROM infervia.weekly_changes
         WHERE discovered_date >= date_sub(current_date(), {days})
         ORDER BY discovered_date DESC, document_id DESC
@@ -164,9 +151,12 @@ async def get_recent_changes(limit: int = 20, days: int = 30):
                 "requires_action": bool(row[9]),
                 "safe_for_use": bool(row[10]),
                 "discovered_date": str(row[11]) if row[11] else "",
-                "clinical_analysis": safe_json_parse(row[12]),
-                "financial_analysis": safe_json_parse(row[13]),
-                "compliance_analysis": safe_json_parse(row[14])
+                "analysis_timestamp": str(row[12]) if row[12] else None,
+                "change_analysis": safe_json_parse(row[13]),
+                "clinical_analysis": safe_json_parse(row[14]),
+                "financial_analysis": safe_json_parse(row[15]),
+                "compliance_analysis": safe_json_parse(row[16]),
+                "quality_control": safe_json_parse(row[17])
             }
             changes.append(change)
         
@@ -183,8 +173,10 @@ async def get_high_impact_changes(limit: int = 10):
             document_id, title, url, source, date,
             change_type, impact_level, facility_types,
             affected_departments, requires_action, safe_for_use,
-            discovered_date, clinical_analysis_json,
-            financial_analysis_json, compliance_analysis_json
+            discovered_date, analysis_timestamp,
+            change_analysis_json, clinical_analysis_json,
+            financial_analysis_json, compliance_analysis_json,
+            quality_control_json
         FROM infervia.weekly_changes
         WHERE impact_level = 'High' 
         AND requires_action = true
@@ -210,9 +202,12 @@ async def get_high_impact_changes(limit: int = 10):
                 "requires_action": bool(row[9]),
                 "safe_for_use": bool(row[10]),
                 "discovered_date": str(row[11]) if row[11] else "",
-                "clinical_analysis": safe_json_parse(row[12]),
-                "financial_analysis": safe_json_parse(row[13]),
-                "compliance_analysis": safe_json_parse(row[14])
+                "analysis_timestamp": str(row[12]) if row[12] else None,
+                "change_analysis": safe_json_parse(row[13]),
+                "clinical_analysis": safe_json_parse(row[14]),
+                "financial_analysis": safe_json_parse(row[15]),
+                "compliance_analysis": safe_json_parse(row[16]),
+                "quality_control": safe_json_parse(row[17])
             }
             changes.append(change)
         
@@ -246,15 +241,12 @@ async def get_dashboard_stats():
     """
     
     try:
-        # Main stats
         rows = await execute_sql(query)
         main_stats = rows[0] if rows else [0, 0, 0, 0]
         
-        # By source
         source_rows = await execute_sql(by_source_query)
         by_source = {row[0]: row[1] for row in source_rows}
         
-        # By impact
         impact_rows = await execute_sql(by_impact_query)
         by_impact = {row[0]: row[1] for row in impact_rows}
         
@@ -267,36 +259,6 @@ async def get_dashboard_stats():
             "by_impact": by_impact
         }
         
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/changes/{document_id}")
-async def get_change_detail(document_id: int):
-    """Get detailed information about a specific change"""
-    query = f"""
-        SELECT *
-        FROM infervia.weekly_changes
-        WHERE document_id = {document_id}
-    """
-    
-    try:
-        rows = await execute_sql(query)
-        
-        if not rows:
-            raise HTTPException(status_code=404, detail="Change not found")
-        
-        row = rows[0]
-        
-        # Map all columns (adjust indices based on your table structure)
-        return {
-            "document_id": row[0],
-            "title": row[1],
-            "url": row[2],
-            "full_details": "Available in detailed view"
-        }
-        
-    except HTTPException:
-        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
