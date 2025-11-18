@@ -2,12 +2,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
-import httpx
 import os
 import json
 from datetime import datetime
+from pathlib import Path
+import re
 
-app = FastAPI(title="Infervia API", version="2.0.0")
+app = FastAPI(title="Infervia API", version="3.1 - Multi-Scraper")
 
 # CORS
 app.add_middleware(
@@ -18,96 +19,239 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Databricks config
-DATABRICKS_HOST = os.getenv("DATABRICKS_SERVER_HOSTNAME")
-DATABRICKS_TOKEN = os.getenv("DATABRICKS_TOKEN")
-DATABRICKS_WAREHOUSE_ID = os.getenv("DATABRICKS_WAREHOUSE_ID")
+# ==============================================================================
+# PYDANTIC MODELS
+# ==============================================================================
 
-# Pydantic Models
+class WhoThisAffects(BaseModel):
+    healthcare_roles: List[str]
+    facility_types: List[str]
+    departments: List[str]
+
+class NextStep(BaseModel):
+    action: str
+    timeline: str
+    owner: str
+    priority: Optional[str] = "medium"
+
+class FinancialImpact(BaseModel):
+    estimated_cost: Optional[str] = None
+    revenue_impact: Optional[str] = None
+    areas_affected: List[str] = []
+
+class SimplifiedAnalysis(BaseModel):
+    detailed_summary: str
+    who_this_affects: WhoThisAffects
+    next_steps: List[NextStep]
+    key_requirements: Optional[List[str]] = []
+    financial_impact: Optional[FinancialImpact] = None
+    compliance_deadline: Optional[str] = None
+    source_link: str
+
+class QualityControl(BaseModel):
+    quality_score: float
+    quality_grade: str
+    safe_to_use: bool
+    factual_accuracy: Optional[float] = None
+
 class RegulatoryChange(BaseModel):
     document_id: int
     title: str
     url: str
     source: str
     date: Optional[str]
-    change_type: str
-    impact_level: str
-    facility_types: Optional[str]
-    affected_departments: Optional[str]
-    requires_action: bool
-    safe_for_use: bool
+    scraper_type: Optional[str] = None
+    
+    facility_types: List[str]
+    affected_departments: List[str]
+    
+    simplified_analysis: SimplifiedAnalysis
+    quality_control: Optional[QualityControl] = None
+    
     discovered_date: str
     analysis_timestamp: Optional[str] = None
-    change_analysis: Optional[Dict[str, Any]] = None
-    clinical_analysis: Optional[Dict[str, Any]] = None
-    financial_analysis: Optional[Dict[str, Any]] = None
-    compliance_analysis: Optional[Dict[str, Any]] = None
-    quality_control: Optional[Dict[str, Any]] = None
 
 class DashboardStats(BaseModel):
     total_changes: int
-    high_impact: int
-    requires_action: int
+    by_facility_type: Dict[str, int]
+    by_department: Dict[str, int]
+    by_scraper_type: Dict[str, int]
     new_this_week: int
-    by_source: Dict[str, int]
-    by_impact: Dict[str, int]
+    average_quality_score: Optional[float] = None
 
-# Helper function
-async def execute_sql(query: str):
-    """Execute SQL via Databricks REST API"""
-    url = f"https://{DATABRICKS_HOST}/api/2.0/sql/statements"
-    
-    headers = {
-        "Authorization": f"Bearer {DATABRICKS_TOKEN}",
-        "Content-Type": "application/json"
-    }
-    
-    payload = {
-        "statement": query,
-        "warehouse_id": DATABRICKS_WAREHOUSE_ID,
-        "wait_timeout": "30s"
-    }
-    
-    async with httpx.AsyncClient(timeout=60.0) as client:
-        response = await client.post(url, json=payload, headers=headers)
-        
-        if response.status_code != 200:
-            raise HTTPException(
-                status_code=response.status_code,
-                detail=f"Databricks API error: {response.text}"
-            )
-        
-        result = response.json()
-        
-        if result.get("status", {}).get("state") == "SUCCEEDED":
-            return result.get("result", {}).get("data_array", [])
-        else:
-            raise HTTPException(
-                status_code=500,
-                detail=f"Query failed: {result.get('status', {})}"
-            )
+# ==============================================================================
+# DATA LOADING - Works with Multi-Scraper Pipeline Output
+# ==============================================================================
 
-def safe_json_parse(json_string):
-    """Safely parse JSON string, return empty dict if invalid"""
-    if not json_string:
-        return {}
+def load_latest_analysis() -> Optional[Dict]:
+    """Load the most recent analysis file"""
+    
+    # Search multiple locations
+    search_dirs = [
+        Path("."),
+        Path("analysis_data/analysis_data"),
+        Path("/Users/dharshinikannan/HealthcarePlatform/Coding Web scraper/healthcare_api"),
+        Path("/Users/dharshinikannan/HealthcarePlatform/Coding Web scraper"),
+    ]
+    
+    json_files = []
+    for search_dir in search_dirs:
+        if search_dir.exists():
+            files = list(search_dir.glob("enhanced_healthcare_analysis_*.json"))
+            if files:
+                json_files.extend(files)
+                print(f"📂 Found {len(files)} files in {search_dir}")
+    
+    if not json_files:
+        print("⚠️ No analysis files found")
+        return None
+    
+    # Get most recent by date in filename
+    def extract_date(filepath):
+        match = re.search(r'(\d{8})_(\d{6})', filepath.name)
+        if match:
+            return int(match.group(1) + match.group(2))
+        return 0
+    
+    latest_file = max(json_files, key=extract_date)
+    
+    print(f"📂 Loading: {latest_file.name}")
+    
     try:
-        return json.loads(json_string)
-    except:
-        return {}
+        with open(latest_file, 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        return None
 
-# Endpoints
+def parse_document(doc_data: Dict, idx: int) -> RegulatoryChange:
+    """Parse document from multi-scraper pipeline format"""
+    
+    # Get document info
+    doc_info = doc_data.get("document_info", {})
+    title = doc_info.get("title", "Untitled")
+    url = doc_info.get("url", "")
+    date = doc_info.get("date", "")
+    source = doc_info.get("source", "CMS")
+    scraper_type = doc_info.get("scraper_type", "Unknown")
+    
+    # Get primary analysis
+    primary = doc_data.get("primary_analysis", {})
+    
+    # Handle error case
+    if "error" in primary:
+        return RegulatoryChange(
+            document_id=idx,
+            title=title,
+            url=url,
+            source=source,
+            date=date,
+            scraper_type=scraper_type,
+            facility_types=["hospitals"],
+            affected_departments=["compliance"],
+            simplified_analysis=SimplifiedAnalysis(
+                detailed_summary="Error analyzing this document",
+                who_this_affects=WhoThisAffects(
+                    healthcare_roles=["Compliance Officers"],
+                    facility_types=["hospitals"],
+                    departments=["compliance"]
+                ),
+                next_steps=[],
+                source_link=url
+            ),
+            discovered_date=datetime.now().strftime("%Y-%m-%d"),
+            analysis_timestamp=datetime.now().isoformat()
+        )
+    
+    # Parse analysis
+    detailed_summary = primary.get("detailed_summary", "Analysis in progress")
+    
+    who_affects = primary.get("who_this_affects", {})
+    healthcare_roles = who_affects.get("healthcare_roles", ["Compliance Officers"])
+    facility_types = who_affects.get("facility_types", ["hospitals"])
+    departments = who_affects.get("departments", ["compliance"])
+    
+    # Next steps
+    next_steps_raw = primary.get("next_steps", [])
+    next_steps = []
+    for step in next_steps_raw[:5]:
+        next_steps.append(NextStep(
+            action=step.get("action", ""),
+            timeline=step.get("timeline", ""),
+            owner=step.get("owner", ""),
+            priority=step.get("priority", "medium")
+        ))
+    
+    # Financial impact
+    fin_impact_raw = primary.get("financial_impact", {})
+    financial_impact = None
+    if fin_impact_raw:
+        financial_impact = FinancialImpact(
+            estimated_cost=fin_impact_raw.get("estimated_cost"),
+            revenue_impact=fin_impact_raw.get("revenue_impact"),
+            areas_affected=fin_impact_raw.get("areas_affected", [])
+        )
+    
+    # Build simplified analysis
+    simplified = SimplifiedAnalysis(
+        detailed_summary=detailed_summary,
+        who_this_affects=WhoThisAffects(
+            healthcare_roles=healthcare_roles,
+            facility_types=facility_types,
+            departments=departments
+        ),
+        next_steps=next_steps,
+        key_requirements=primary.get("key_requirements", []),
+        financial_impact=financial_impact,
+        compliance_deadline=primary.get("compliance_deadline"),
+        source_link=url
+    )
+    
+    # Quality control
+    qc_data = doc_data.get("quality_control", {})
+    quality_control = None
+    if qc_data:
+        quality_control = QualityControl(
+            quality_score=qc_data.get("quality_score", 0),
+            quality_grade=qc_data.get("quality_grade", "Unknown"),
+            safe_to_use=qc_data.get("safe_to_use", False),
+            factual_accuracy=qc_data.get("factual_accuracy")
+        )
+    
+    metadata = doc_data.get("metadata", {})
+    analysis_timestamp = metadata.get("analyzed_at", datetime.now().isoformat())
+    
+    return RegulatoryChange(
+        document_id=idx,
+        title=title,
+        url=url,
+        source=source,
+        date=date,
+        scraper_type=scraper_type,
+        facility_types=facility_types,
+        affected_departments=departments,
+        simplified_analysis=simplified,
+        quality_control=quality_control,
+        discovered_date=datetime.now().strftime("%Y-%m-%d"),
+        analysis_timestamp=analysis_timestamp
+    )
+
+# ==============================================================================
+# API ENDPOINTS
+# ==============================================================================
+
 @app.get("/")
 def root():
     return {
         "status": "healthy",
-        "service": "Infervia API",
-        "version": "2.0.0",
-        "endpoints": [
-            "/api/changes/recent",
-            "/api/changes/high-impact",
-            "/api/stats/dashboard",
-            "/api/changes/{document_id}"
+        "service": "Infervia API v3.1 - Multi-Scraper",
+        "version": "3.1.0",
+        "features": [
+            "Multi-scraper support (newsroom, latest_updates, regulations, transmittals, federal_register)",
+            "Comprehensive detailed summaries",
+            "3-model AI verification",
+            "Quality control scoring",
+            "Financial impact analysis"
         ]
     }
 
@@ -116,151 +260,113 @@ def health():
     return {"status": "ok", "timestamp": datetime.now().isoformat()}
 
 @app.get("/api/changes/recent", response_model=List[RegulatoryChange])
-async def get_recent_changes(limit: int = 20, days: int = 30):
-    """Get recent regulatory changes with all analysis"""
-    query = f"""
-        SELECT 
-            document_id, title, url, source, date,
-            change_type, impact_level, facility_types,
-            affected_departments, requires_action, safe_for_use,
-            discovered_date, analysis_timestamp,
-            change_analysis_json, clinical_analysis_json,
-            financial_analysis_json, compliance_analysis_json,
-            quality_control_json
-        FROM infervia.weekly_changes
-        WHERE discovered_date >= date_sub(current_date(), {days})
-        ORDER BY discovered_date DESC, document_id DESC
-        LIMIT {limit}
-    """
+async def get_recent_changes(limit: int = 20):
+    """Get recent regulatory changes from all scraper types"""
     
-    try:
-        rows = await execute_sql(query)
-        
-        changes = []
-        for row in rows:
-            change = {
-                "document_id": row[0] or 0,
-                "title": row[1] or "Untitled",
-                "url": row[2] or "",
-                "source": row[3] or "unknown",
-                "date": str(row[4]) if row[4] else None,
-                "change_type": row[5] or "unknown",
-                "impact_level": row[6] or "Unknown",
-                "facility_types": row[7],
-                "affected_departments": row[8],
-                "requires_action": bool(row[9]),
-                "safe_for_use": bool(row[10]),
-                "discovered_date": str(row[11]) if row[11] else "",
-                "analysis_timestamp": str(row[12]) if row[12] else None,
-                "change_analysis": safe_json_parse(row[13]),
-                "clinical_analysis": safe_json_parse(row[14]),
-                "financial_analysis": safe_json_parse(row[15]),
-                "compliance_analysis": safe_json_parse(row[16]),
-                "quality_control": safe_json_parse(row[17])
-            }
+    data = load_latest_analysis()
+    
+    if not data:
+        raise HTTPException(status_code=404, detail="No analysis data found")
+    
+    # NEW FORMAT: documents is at top level
+    documents = data.get("documents", [])
+    
+    if not documents:
+        print("⚠️ No documents found in analysis file")
+        print(f"   Available keys: {list(data.keys())}")
+        raise HTTPException(status_code=404, detail="No documents in analysis file")
+    
+    print(f"✅ Found {len(documents)} documents")
+    
+    # Parse each document
+    changes = []
+    for idx, doc in enumerate(documents[:limit]):
+        try:
+            change = parse_document(doc, idx)
             changes.append(change)
-        
-        return changes
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        except Exception as e:
+            print(f"⚠️ Error parsing document {idx}: {e}")
+            continue
+    
+    return changes
 
-@app.get("/api/changes/high-impact", response_model=List[RegulatoryChange])
-async def get_high_impact_changes(limit: int = 10):
-    """Get high-impact changes requiring action"""
-    query = f"""
-        SELECT 
-            document_id, title, url, source, date,
-            change_type, impact_level, facility_types,
-            affected_departments, requires_action, safe_for_use,
-            discovered_date, analysis_timestamp,
-            change_analysis_json, clinical_analysis_json,
-            financial_analysis_json, compliance_analysis_json,
-            quality_control_json
-        FROM infervia.weekly_changes
-        WHERE impact_level = 'High' 
-        AND requires_action = true
-        ORDER BY discovered_date DESC
-        LIMIT {limit}
-    """
-    
-    try:
-        rows = await execute_sql(query)
-        
-        changes = []
-        for row in rows:
-            change = {
-                "document_id": row[0] or 0,
-                "title": row[1] or "Untitled",
-                "url": row[2] or "",
-                "source": row[3] or "unknown",
-                "date": str(row[4]) if row[4] else None,
-                "change_type": row[5] or "unknown",
-                "impact_level": row[6] or "Unknown",
-                "facility_types": row[7],
-                "affected_departments": row[8],
-                "requires_action": bool(row[9]),
-                "safe_for_use": bool(row[10]),
-                "discovered_date": str(row[11]) if row[11] else "",
-                "analysis_timestamp": str(row[12]) if row[12] else None,
-                "change_analysis": safe_json_parse(row[13]),
-                "clinical_analysis": safe_json_parse(row[14]),
-                "financial_analysis": safe_json_parse(row[15]),
-                "compliance_analysis": safe_json_parse(row[16]),
-                "quality_control": safe_json_parse(row[17])
-            }
-            changes.append(change)
-        
-        return changes
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+@app.get("/api/changes/by-facility/{facility_type}")
+async def get_changes_by_facility(facility_type: str, limit: int = 10):
+    """Filter by facility type"""
+    all_changes = await get_recent_changes(limit=100)
+    filtered = [
+        c for c in all_changes 
+        if facility_type.lower() in [ft.lower() for ft in c.facility_types]
+    ]
+    return filtered[:limit]
+
+@app.get("/api/changes/by-department/{department}")
+async def get_changes_by_department(department: str, limit: int = 10):
+    """Filter by department"""
+    all_changes = await get_recent_changes(limit=100)
+    filtered = [
+        c for c in all_changes 
+        if department.lower() in [d.lower() for d in c.affected_departments]
+    ]
+    return filtered[:limit]
+
+@app.get("/api/changes/by-scraper/{scraper_type}")
+async def get_changes_by_scraper(scraper_type: str, limit: int = 20):
+    """Filter by scraper type (newsroom, latest_updates, etc)"""
+    all_changes = await get_recent_changes(limit=100)
+    filtered = [
+        c for c in all_changes 
+        if c.scraper_type and scraper_type.lower() in c.scraper_type.lower()
+    ]
+    return filtered[:limit]
 
 @app.get("/api/stats/dashboard", response_model=DashboardStats)
 async def get_dashboard_stats():
-    """Get dashboard statistics"""
-    query = """
-        SELECT 
-            COUNT(*) as total,
-            COUNT(CASE WHEN impact_level = 'High' THEN 1 END) as high_impact,
-            COUNT(CASE WHEN requires_action = true THEN 1 END) as requires_action,
-            COUNT(CASE WHEN discovered_date >= date_sub(current_date(), 7) THEN 1 END) as new_this_week
-        FROM infervia.weekly_changes
-    """
+    """Dashboard statistics"""
     
-    by_source_query = """
-        SELECT source, COUNT(*) as count
-        FROM infervia.weekly_changes
-        GROUP BY source
-    """
+    changes = await get_recent_changes(limit=100)
     
-    by_impact_query = """
-        SELECT impact_level, COUNT(*) as count
-        FROM infervia.weekly_changes
-        GROUP BY impact_level
-    """
+    # Count by facility type
+    facility_counts = {}
+    for change in changes:
+        for ft in change.facility_types:
+            facility_counts[ft] = facility_counts.get(ft, 0) + 1
     
-    try:
-        rows = await execute_sql(query)
-        main_stats = rows[0] if rows else [0, 0, 0, 0]
-        
-        source_rows = await execute_sql(by_source_query)
-        by_source = {row[0]: row[1] for row in source_rows}
-        
-        impact_rows = await execute_sql(by_impact_query)
-        by_impact = {row[0]: row[1] for row in impact_rows}
-        
-        return {
-            "total_changes": main_stats[0] or 0,
-            "high_impact": main_stats[1] or 0,
-            "requires_action": main_stats[2] or 0,
-            "new_this_week": main_stats[3] or 0,
-            "by_source": by_source,
-            "by_impact": by_impact
-        }
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    # Count by department
+    dept_counts = {}
+    for change in changes:
+        for dept in change.affected_departments:
+            dept_counts[dept] = dept_counts.get(dept, 0) + 1
+    
+    # Count by scraper type
+    scraper_counts = {}
+    for change in changes:
+        if change.scraper_type:
+            scraper_counts[change.scraper_type] = scraper_counts.get(change.scraper_type, 0) + 1
+    
+    # Count new this week
+    week_ago = datetime.now().timestamp() - (7 * 24 * 60 * 60)
+    new_this_week = sum(
+        1 for c in changes 
+        if datetime.fromisoformat(c.analysis_timestamp).timestamp() > week_ago
+    )
+    
+    # Average quality
+    quality_scores = [
+        c.quality_control.quality_score 
+        for c in changes 
+        if c.quality_control
+    ]
+    avg_quality = sum(quality_scores) / len(quality_scores) if quality_scores else None
+    
+    return DashboardStats(
+        total_changes=len(changes),
+        by_facility_type=facility_counts,
+        by_department=dept_counts,
+        by_scraper_type=scraper_counts,
+        new_this_week=new_this_week,
+        average_quality_score=round(avg_quality, 2) if avg_quality else None
+    )
 
 if __name__ == "__main__":
     import uvicorn
