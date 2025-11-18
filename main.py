@@ -89,6 +89,7 @@ def load_latest_analysis() -> Optional[Dict]:
     # Search multiple locations
     search_dirs = [
         Path("."),
+        Path("analysis_data/"),
         Path("analysis_data/analysis_data"),
         Path("/Users/dharshinikannan/HealthcarePlatform/Coding Web scraper/healthcare_api"),
         Path("/Users/dharshinikannan/HealthcarePlatform/Coding Web scraper"),
