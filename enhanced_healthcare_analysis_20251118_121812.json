@@ -1,0 +1,2321 @@
+{
+  "analysis_summary": {
+    "total_documents_analyzed": 20,
+    "scraper_types_analyzed": [
+      "cms_regulations_content",
+      "cms_newsroom_dynamic",
+      "hhs_documents"
+    ],
+    "breakdown_by_type": {
+      "cms_regulations_content": 5,
+      "cms_newsroom_dynamic": 8,
+      "hhs_documents": 7
+    },
+    "file_pairs_analyzed": [
+      {
+        "scraper_type": "scraper_status",
+        "old_file": "scraper_status_weekly_20251117_2108.json",
+        "new_file": "scraper_status_weekly_20251117_2303.json"
+      },
+      {
+        "scraper_type": "cms_regulations_content",
+        "old_file": "cms_regulations_content_high_priority_20250806_2228.json",
+        "new_file": "cms_regulations_content_weekly_20251117_2303.json"
+      },
+      {
+        "scraper_type": "cms_newsroom_dynamic",
+        "old_file": "cms_newsroom_dynamic_high_priority_20251004_0237.json",
+        "new_file": "cms_newsroom_dynamic_high_priority_20251117_2137.json"
+      },
+      {
+        "scraper_type": "cms_transmittals_comprehensive_2025",
+        "old_file": "cms_transmittals_comprehensive_2025_high_priority_20250806_2228.json",
+        "new_file": "cms_transmittals_comprehensive_2025_weekly_20251117_2303.json"
+      },
+      {
+        "scraper_type": "hhs_documents",
+        "old_file": "hhs_documents_high_priority_20251004_0237.json",
+        "new_file": "hhs_documents_weekly_20251117_2303.json"
+      },
+      {
+        "scraper_type": "federal_register_cms_500_documents",
+        "old_file": "federal_register_cms_500_documents_high_priority_20250806_0003.json",
+        "new_file": "federal_register_cms_500_documents_high_priority_20250806_2228.json"
+      }
+    ],
+    "analysis_timestamp": "2025-11-18T12:18:12.951434"
+  },
+  "documents": [
+    {
+      "document_info": {
+        "title": "Qualified Health Plan (QHP) Certification Updates for the Federally-facilitated Exchange (FFE) and State-based Exchanges on the Federal Platform (SBE-FPs) in Response to City of Columbus v. Kennedy, No. 25-cv-2114-BAH (D.Md.) (PDF)",
+        "url": "https://www.cms.gov/files/document/qhp-certification-updates.pdf-0",
+        "date": "",
+        "source": "CMS",
+        "scraper_type": "cms_regulations_content"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS issued urgent guidance on September 5, 2025, requiring health insurance issuers to revise Qualified Health Plan (QHP) certifications for Plan Year 2026 following a federal court stay of key provisions in the Marketplace Integrity and Affordability Final Rule. The court order in City of Columbus v. Kennedy stayed seven provisions including expanded actuarial value de minimis ranges, premium payment policies, and eligibility verification requirements. Issuers must submit updated rate and form filings during a special Data Change Window (September 30 - October 1, 2025) to ensure plans comply with pre-rule actuarial value ranges, or CMS will be unable to certify their plans for 2026.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Chief Financial Officer",
+            "Chief Compliance Officer",
+            "VP of Health Plan Operations",
+            "Actuarial Directors",
+            "Regulatory Affairs Directors",
+            "Exchange Operations Managers"
+          ],
+          "facility_types": [
+            "health insurance issuers",
+            "federally-facilitated exchanges",
+            "state-based exchanges on federal platform",
+            "qualified health plan sponsors"
+          ],
+          "departments": [
+            "actuarial",
+            "compliance",
+            "regulatory affairs",
+            "product development",
+            "rate filing",
+            "exchange operations",
+            "legal"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review all Plan Year 2026 QHP filings to identify plans with actuarial values using expanded de minimis ranges from the stayed rule",
+            "timeline": "Immediately through September 29, 2025",
+            "owner": "Actuarial Directors and Compliance Officers",
+            "priority": "high"
+          },
+          {
+            "action": "Revise plan designs and actuarial values to comply with pre-rule de minimis ranges under 45 C.F.R. \u00a7\u00a7 156.140(c), 156.200(b)(3), and 156.400",
+            "timeline": "By September 29, 2025",
+            "owner": "Actuarial Teams and Product Development",
+            "priority": "high"
+          },
+          {
+            "action": "Submit updated rate and form filings to CMS or state regulators for non-compliant plans",
+            "timeline": "September 30 - October 1, 2025 (Data Change Window)",
+            "owner": "Regulatory Affairs and Rate Filing Teams",
+            "priority": "high"
+          },
+          {
+            "action": "Coordinate with state insurance departments on approval timing to preserve ability to revert to current filings if court decisions change",
+            "timeline": "September 30 - October 1, 2025",
+            "owner": "State Relations and Compliance Teams",
+            "priority": "high"
+          },
+          {
+            "action": "Update QHP certification applications in HIOS system to reflect revised actuarial values and plan designs",
+            "timeline": "September 30 - October 1, 2025",
+            "owner": "Exchange Operations and Data Management Teams",
+            "priority": "high"
+          },
+          {
+            "action": "Monitor ongoing litigation in City of Columbus v. Kennedy for potential changes to requirements based on appeals court decisions",
+            "timeline": "Ongoing through Plan Year 2026 implementation",
+            "owner": "Legal and Regulatory Affairs",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Plans with actuarial values using expanded de minimis ranges from the Marketplace Integrity and Affordability Final Rule must be revised to comply with pre-rule allowable ranges",
+          "Updated rate and form filings must be submitted during the September 30 - October 1, 2025 Data Change Window",
+          "Non-compliant plans will not be certified by CMS for Plan Year 2026 if not revised",
+          "Seven provisions of the Marketplace Integrity and Affordability Final Rule remain stayed: $5 monthly premium for fully subsidized enrollees failing to update eligibility, issuer ability to decline coverage for unpaid prior premiums, failure to reconcile policy changes, pre-enrollment SEP verification, household income verification from trusted data sources, income verification when tax data unavailable, and expanded actuarial value de minimis ranges",
+          "Issuers must coordinate with state regulators on timing of approvals to preserve flexibility if court decisions change",
+          "Compliance with 45 C.F.R. \u00a7\u00a7 156.140(c), 156.200(b)(3), and 156.400 as they existed before the stayed rule is mandatory"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Variable by issuer - costs include actuarial recalculations, rate refiling fees, system updates to QHP data, legal review, and potential repricing of 2026 plans; estimated $50,000-$500,000 per issuer depending on number of affected plans",
+          "revenue_impact": "negative",
+          "areas_affected": [
+            "premium revenue projections for 2026",
+            "actuarial reserves and risk calculations",
+            "rate filing and regulatory compliance costs",
+            "potential loss of plans that cannot be certified",
+            "administrative costs for emergency plan revisions",
+            "reduced flexibility in plan design due to narrower actuarial value ranges"
+          ]
+        },
+        "compliance_deadline": "September 30 - October 1, 2025 (Data Change Window for QHP data resubmission)",
+        "source_link": "https://www.cms.gov/files/document/qhp-certification-updates.pdf-0"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:08:15.399268",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Additional Guidance on Qualified Health Plan Certification and City of Columbus v. Kennedy (PDF)",
+        "url": "https://www.cms.gov/files/document/additional-guidance-qualified-health-plan-certification-city-columbus-v-kennedy.pdf",
+        "date": "",
+        "source": "CMS",
+        "scraper_type": "cms_regulations_content"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS issued guidance on September 23, 2025, clarifying requirements for Qualified Health Plan (QHP) certification following the City of Columbus v. Kennedy court decision. The guidance establishes a September 30 - October 1, 2025 data change window for issuers to revise QHP applications, rate filings, and form filings to comply with the court order that stayed expanded de minimis ranges for actuarial value calculations from the Marketplace Integrity and Affordability Final Rule. Issuers may also revise filings to account for expanded catastrophic coverage access and other rate changes approved by state or CMS Rate Review, though they cannot add new plans or change metal levels during this window.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Chief Financial Officer",
+            "Chief Compliance Officer",
+            "Insurance Plan Administrators",
+            "Actuaries",
+            "Regulatory Affairs Directors"
+          ],
+          "facility_types": [
+            "health_insurance_issuers",
+            "federally_facilitated_exchanges",
+            "state_based_exchanges"
+          ],
+          "departments": [
+            "actuarial",
+            "compliance",
+            "regulatory_affairs",
+            "rate_filing",
+            "product_development"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Submit revised QHP applications, rate filings, and form filings to comply with court order on actuarial value policy",
+            "timeline": "September 30 - October 1, 2025",
+            "owner": "QHP Issuers and Actuarial Teams",
+            "priority": "high"
+          },
+          {
+            "action": "Revise rate filings to account for expanded catastrophic coverage access if applicable",
+            "timeline": "September 30 - October 1, 2025",
+            "owner": "Rate Filing Specialists",
+            "priority": "high"
+          },
+          {
+            "action": "Coordinate with state regulators in states with Effective Rate Review Programs for refiling instructions",
+            "timeline": "Immediately through October 1, 2025",
+            "owner": "Regulatory Affairs Directors",
+            "priority": "high"
+          },
+          {
+            "action": "Communicate compliance issues to CMS and state regulators to mitigate market disruptions",
+            "timeline": "Immediately",
+            "owner": "Chief Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Correct critical data errors as required by states or CMS during the data change window",
+            "timeline": "September 30 - October 1, 2025",
+            "owner": "Data Quality Teams",
+            "priority": "high"
+          }
+        ],
+        "key_requirements": [
+          "Revise QHP applications, rate filings, and form filings to comply with August 22, 2025 court order staying expanded de minimis ranges for actuarial value calculations",
+          "Submit all revisions during the September 30 - October 1, 2025 data change window only",
+          "Obtain state or CMS Rate Review approval for revised rate filings (CMS reviews for OK, TN, and WY)",
+          "Obtain state or CMS Form Review approval for revised form filings in applicable states",
+          "Cannot add new plans or change existing plan metal levels during this window",
+          "Must comply with reversion to previous actuarial value policy under 45 C.F.R. \u00a7\u00a7 156.140(c), 156.200(b)(3), and 156.400",
+          "Follow instructions from state regulators in states with Effective Rate Review Programs",
+          "Address expanded catastrophic coverage access policy changes if applicable to issuer's market"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Significant operational costs for emergency rate refiling, actuarial recalculations, form revisions, legal review, and system updates within 2-day window",
+          "revenue_impact": "negative",
+          "areas_affected": [
+            "premium_rates",
+            "actuarial_value_calculations",
+            "catastrophic_plan_pricing",
+            "administrative_costs",
+            "market_competitiveness",
+            "plan_year_2026_revenue_projections"
+          ]
+        },
+        "compliance_deadline": "October 1, 2025",
+        "source_link": "https://www.cms.gov/files/document/additional-guidance-qualified-health-plan-certification-city-columbus-v-kennedy.pdf"
+      },
+      "quality_control": {
+        "quality_score": 80,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:08:48.161565",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Key Dates for Calendar Year 2025: Qualified Health Plan (QHP) Data Submission and Certification; Rate Review; Form Review and Risk Adjustment (PDF)",
+        "url": "https://www.cms.gov/files/document/revised-cy25-key-dates-tables.pdf",
+        "date": "",
+        "source": "CMS",
+        "scraper_type": "cms_regulations_content"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS has released revised key dates for Calendar Year 2025 Qualified Health Plan (QHP) certification, rate review, form review, and risk adjustment processes. The document outlines critical deadlines for health insurance issuers participating in Federally-facilitated Exchanges and State-based Exchanges on the Federal platform. Key revisions include new opportunities for plan withdrawals (September 16-25, 2025), delayed certification agreement signing (September 26-October 2, 2025), and adjusted machine-readable data posting deadlines (October 2, 2025). These changes were made in response to litigation (City of Columbus v. Kennedy) and affect the timeline for 2026 plan year certification.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Health Plan Executives",
+            "Compliance Officers",
+            "Actuaries",
+            "Quality Improvement Directors",
+            "Exchange Operations Managers",
+            "Regulatory Affairs Directors"
+          ],
+          "facility_types": [
+            "Health Insurance Issuers",
+            "Managed Care Organizations",
+            "State Exchange Administrators",
+            "Federally-facilitated Exchanges",
+            "NCQA-accredited organizations"
+          ],
+          "departments": [
+            "Regulatory Compliance",
+            "Actuarial Services",
+            "Quality Management",
+            "Product Development",
+            "Legal/Regulatory Affairs",
+            "Data Analytics"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Submit QHP Applications and begin data validation process through CMS portal",
+            "timeline": "April 16, 2025 (window opens)",
+            "owner": "QHP Application Manager/Regulatory Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Submit HHS-approved QHP Enrollee Survey response data to CMS via approved vendor",
+            "timeline": "May 16, 2025",
+            "owner": "Quality Improvement Director/Survey Coordinator",
+            "priority": "high"
+          },
+          {
+            "action": "Submit validated Quality Rating System (QRS) clinical measure data with attestation via NCQA's IDSS (plan-lock data by May 30)",
+            "timeline": "June 13, 2025",
+            "owner": "Quality Data Manager/Clinical Quality Director",
+            "priority": "high"
+          },
+          {
+            "action": "Submit initial QHP Applications to CMS including Plan ID Crosswalk data",
+            "timeline": "June 11, 2025",
+            "owner": "Product Development Manager/Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Submit proposed rate filing justifications to CMS in URR module (states without Effective Rate Review Program)",
+            "timeline": "June 2, 2025",
+            "owner": "Chief Actuary/Rate Filing Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Submit proposed rate filing justifications to CMS and state (states with Effective Rate Review Program)",
+            "timeline": "July 16, 2025",
+            "owner": "Chief Actuary/Rate Filing Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Submit QHP Application Rates Table Templates and optional corrected application data",
+            "timeline": "July 16, 2025",
+            "owner": "Actuarial Services/Product Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Complete final plan confirmation and submit final Plan ID Crosswalk Templates",
+            "timeline": "August 6-20, 2025",
+            "owner": "Exchange Operations Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Submit final changes to QHP Applications",
+            "timeline": "August 13, 2025",
+            "owner": "Regulatory Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Utilize new opportunity to withdraw plans if needed",
+            "timeline": "September 16-25, 2025",
+            "owner": "Executive Leadership/Product Strategy Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Return signed QHP Certification Agreements to CMS",
+            "timeline": "September 26 - October 2, 2025",
+            "owner": "Chief Executive Officer/Legal Counsel",
+            "priority": "high"
+          },
+          {
+            "action": "Ensure machine-readable data is posted and marketing URLs are live and active",
+            "timeline": "October 2, 2025",
+            "owner": "IT Director/Digital Marketing Manager",
+            "priority": "high"
+          }
+        ],
+        "key_requirements": [
+          "Submit QHP Applications through CMS portal with complete data validation between April 16 and multiple subsequent deadlines through August 13, 2025",
+          "Submit QHP Enrollee Survey response data through HHS-approved vendor by May 16, 2025",
+          "Submit validated Quality Rating System (QRS) clinical measure data with attestation via NCQA's Interactive Data Submission System (IDSS) by June 13, 2025, with plan-lock by May 30, 2025",
+          "Submit Plan ID Crosswalk data by initial application deadline (June 11, 2025) and final crosswalk templates between August 6-20, 2025",
+          "Submit rate filing justifications through Unified Rate Review (URR) module in HIOS by June 2, 2025 (states without Effective Rate Review Program) or July 16, 2025 (states with Effective Rate Review Program)",
+          "Submit Rates Table Templates by July 16, 2025 secondary application deadline",
+          "Complete state plan confirmation between September 26 - October 2, 2025",
+          "Return signed QHP Certification Agreements between September 26 - October 2, 2025",
+          "Post machine-readable data and activate marketing URLs by October 2, 2025",
+          "Comply with information collection requests under OMB control numbers 0938-1187, 0938-1295, 0938-1310, 0938-1415, and 0938-1461",
+          "Participate in limited data change windows on September 11-12, 2025 and September 30 - October 1, 2025",
+          "Prepare for anticipated public display of QHP quality rating information on November 1, 2025 coinciding with Open Enrollment"
+        ],
+        "financial_impact": {
+          "estimated_cost": "No direct fees specified for IDSS access; costs associated with data collection, quality measurement, actuarial analysis, compliance staff time, vendor fees for survey administration, and HEDIS compliance auditing",
+          "revenue_impact": "neutral to positive",
+          "areas_affected": [
+            "Exchange marketplace participation and revenue",
+            "Premium rate setting and approval",
+            "Quality bonus payments eligibility",
+            "Market competitiveness based on quality ratings",
+            "Administrative costs for compliance and data submission",
+            "Potential revenue from 2026 plan year enrollment beginning November 1, 2025"
+          ]
+        },
+        "compliance_deadline": "Multiple cascading deadlines from April 16, 2025 through October 17, 2025, with critical final deadlines of October 2, 2025 for certification agreements and machine-readable data, and November 1, 2025 for Open Enrollment and public quality rating display",
+        "source_link": "https://www.cms.gov/files/document/revised-cy25-key-dates-tables.pdf"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:09:34.553366",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Information regarding City of Columbus v. Kennedy, No. 25-cv-2114-BAH (D.Md.) (PDF)",
+        "url": "https://www.cms.gov/files/document/info-re-city-columbus.pdf",
+        "date": "",
+        "source": "CMS",
+        "scraper_type": "cms_regulations_content"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS has issued a notice regarding a federal court stay of seven key provisions from the Marketplace Integrity and Affordability Final Rule that were scheduled to take effect August 25, 2025. The stay, issued in City of Columbus v. Kennedy (D. Md.), suspends implementation of provisions including: a $5 monthly premium for fully subsidized enrollees who fail to submit eligibility updates, pre-enrollment verification for special enrollment periods, stricter income verification requirements, changes to the failure-to-reconcile policy (reverting to two-year policy for 2026), issuer authority to decline coverage for unpaid premiums, and modifications to actuarial value de minimis ranges. The Department of Justice filed motions on August 29, 2025, seeking to stay the order specifically regarding the actuarial value policy while the litigation proceeds.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Compliance Officer",
+            "Revenue Cycle Director",
+            "Enrollment Coordinators",
+            "Health Plan Administrators",
+            "Actuaries",
+            "Legal Counsel"
+          ],
+          "facility_types": [
+            "health insurance exchanges",
+            "marketplace issuers",
+            "state-based exchanges",
+            "federally-facilitated exchanges",
+            "health insurance carriers"
+          ],
+          "departments": [
+            "enrollment services",
+            "eligibility verification",
+            "premium billing",
+            "compliance",
+            "actuarial services",
+            "revenue cycle",
+            "legal"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Suspend implementation of $5 monthly premium requirement for fully subsidized enrollees who fail to submit eligibility updates",
+            "timeline": "Immediate - effective August 25, 2025",
+            "owner": "Enrollment Services Director",
+            "priority": "high"
+          },
+          {
+            "action": "Revert to two-year failure to file and reconcile policy for 2026 instead of implementing one-year policy",
+            "timeline": "Plan year 2026",
+            "owner": "Eligibility Operations Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Suspend pre-enrollment eligibility verification requirements for all special enrollment periods",
+            "timeline": "Immediate - do not implement on August 25, 2025",
+            "owner": "Special Enrollment Period Coordinator",
+            "priority": "high"
+          },
+          {
+            "action": "Do not implement enhanced income verification requirements for household income inconsistencies using trusted data sources",
+            "timeline": "Immediate - effective August 25, 2025",
+            "owner": "Eligibility Verification Team Lead",
+            "priority": "high"
+          },
+          {
+            "action": "Suspend policy allowing issuers to decline new coverage for customers with unpaid prior premiums",
+            "timeline": "Immediate - effective August 25, 2025",
+            "owner": "Premium Billing Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Maintain existing de minimis ranges for actuarial value calculations (do not implement new changes)",
+            "timeline": "Immediate - pending appeal outcome",
+            "owner": "Chief Actuary",
+            "priority": "high"
+          },
+          {
+            "action": "Monitor litigation status and DOJ appeal regarding actuarial value policy stay",
+            "timeline": "Ongoing",
+            "owner": "Legal Counsel and Compliance Officer",
+            "priority": "medium"
+          },
+          {
+            "action": "Update internal policies, procedures, and systems to reflect stayed provisions",
+            "timeline": "Within 30 days",
+            "owner": "Compliance Director",
+            "priority": "high"
+          },
+          {
+            "action": "Communicate changes to staff, issuers, and stakeholders regarding suspended rule provisions",
+            "timeline": "Within 2 weeks",
+            "owner": "Communications Director",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Do not implement $5 monthly premium for fully subsidized enrollees failing to submit eligibility updates (45 C.F.R. \u00a7 155.335(a)(3) and (n))",
+          "Do not allow issuers to decline new coverage based on unpaid prior premiums (45 C.F.R. \u00a7 147.104(i))",
+          "Maintain two-year failure to file and reconcile policy for 2026 instead of one-year policy (45 C.F.R. \u00a7 155.305(f)(4)(iii))",
+          "Do not implement pre-enrollment eligibility verification for all special enrollment periods (45 C.F.R. \u00a7 155.420(g))",
+          "Do not implement enhanced income verification requirements when attested income differs from trusted data sources (45 C.F.R. \u00a7 155.320(c)(3)(iii)(A) and \u00a7 155.320(c)(3)(vi)(C)(2))",
+          "Do not implement income verification requirement when tax return data is unavailable (45 C.F.R. \u00a7 155.320(c)(5))",
+          "Maintain existing de minimis ranges for actuarial value calculations (45 C.F.R. \u00a7\u00a7 156.140(c), 156.200(b)(3), and 156.400)"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Variable - depends on organization type and operational changes already implemented; potential costs include system rollback expenses, staff retraining, and policy documentation updates",
+          "revenue_impact": "neutral to positive",
+          "areas_affected": [
+            "premium collections",
+            "enrollment operations",
+            "eligibility verification systems",
+            "actuarial value calculations",
+            "special enrollment period processing",
+            "reconciliation processes",
+            "IT systems and infrastructure"
+          ]
+        },
+        "compliance_deadline": "Immediate - August 25, 2025 (provisions stayed indefinitely pending litigation outcome)",
+        "source_link": "https://www.cms.gov/files/document/info-re-city-columbus.pdf"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 100.0
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:10:09.791122",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Guidance on Hardship Exemptions for Individuals Ineligible for Advance Payment of the Premium Tax Credit or Cost-sharing Reductions Due to Income, and Streamlining Exemption Pathways to Coverage (PDF)",
+        "url": "https://www.cms.gov/files/document/guidance-hardship-exemptions.pdf",
+        "date": "",
+        "source": "CMS",
+        "scraper_type": "cms_regulations_content"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS issued guidance on September 4, 2025, expanding hardship exemptions for plan year 2026 and beyond to allow individuals ineligible for advance premium tax credits (APTC) or cost-sharing reductions (CSRs) due to income levels to enroll in catastrophic health coverage. This policy responds to significant premium increases in the individual insurance market driven by enrollment shifts and unauthorized agent activity during the COVID-19 pandemic. The guidance expands existing hardship exemption categories under 45 CFR \u00a7155.605(d)(1)(iii) and streamlines the application process through HealthCare.gov and paper applications. This affects how healthcare organizations counsel patients about coverage options and may impact patient insurance mix and reimbursement patterns.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Patient Financial Services Director",
+            "Revenue Cycle Manager",
+            "Patient Access Coordinator",
+            "Compliance Officer",
+            "Case Management Director"
+          ],
+          "facility_types": [
+            "hospital",
+            "ambulatory surgery center",
+            "clinic",
+            "federally qualified health center",
+            "community health center",
+            "urgent care center"
+          ],
+          "departments": [
+            "patient registration",
+            "financial counseling",
+            "billing",
+            "revenue cycle",
+            "compliance",
+            "case management",
+            "patient access"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Train patient financial counselors and registration staff on new catastrophic coverage eligibility criteria and hardship exemption pathways for patients ineligible for APTC/CSRs",
+            "timeline": "Before January 1, 2026 (plan year 2026 start)",
+            "owner": "Patient Financial Services Director",
+            "priority": "high"
+          },
+          {
+            "action": "Update patient insurance verification and eligibility screening protocols to identify patients who may qualify for catastrophic coverage under expanded hardship exemptions",
+            "timeline": "Q4 2025",
+            "owner": "Revenue Cycle Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Revise financial assistance policies and patient counseling materials to include information about catastrophic coverage options for higher-income individuals facing hardship",
+            "timeline": "Before November 1, 2025 (open enrollment start)",
+            "owner": "Compliance Officer and Patient Access Coordinator",
+            "priority": "medium"
+          },
+          {
+            "action": "Analyze current patient population to identify individuals who may benefit from catastrophic coverage and develop outreach strategy for open enrollment period",
+            "timeline": "October 2025",
+            "owner": "CFO and Case Management Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Monitor reimbursement patterns and bad debt trends for patients with catastrophic coverage to assess financial impact of expanded eligibility",
+            "timeline": "Ongoing starting January 2026",
+            "owner": "CFO and Revenue Cycle Manager",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Individuals ineligible for APTC or CSRs due to income may now qualify for hardship exemptions to purchase catastrophic plans under 45 CFR \u00a7155.605(d)(1)(iii)",
+          "Hardship exemptions apply for at least the month before, during, and after the specific hardship circumstance",
+          "Exemptions are available through Federally-facilitated Exchanges (FFE) and State-based Exchanges (SBEs) that process exemptions through the FFE",
+          "Applications can be submitted through HealthCare.gov or paper exemption applications with streamlined processing",
+          "Catastrophic coverage remains available to individuals under age 30 and those certified as unable to afford QHP coverage",
+          "Healthcare organizations must be prepared to counsel patients on expanded catastrophic coverage options during open enrollment"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Minimal direct costs for staff training and policy updates; estimated $5,000-$15,000 for materials development and training programs",
+          "revenue_impact": "negative",
+          "areas_affected": [
+            "reimbursement rates",
+            "patient collections",
+            "bad debt",
+            "charity care",
+            "payer mix",
+            "revenue cycle operations"
+          ]
+        },
+        "compliance_deadline": "Plan year 2026 (January 1, 2026)",
+        "source_link": "https://www.cms.gov/files/document/guidance-hardship-exemptions.pdf"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:10:41.444031",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "CMS Issues Guidance to Strengthen Oversight of Medicaid Financing",
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-issues-guidance-strengthen-oversight-medicaid-financing",
+        "date": "Date not found",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS has issued guidance aimed at strengthening oversight of Medicaid financing mechanisms. This guidance addresses concerns about the integrity of funding sources and payment arrangements between states and healthcare providers. The directive focuses on ensuring that Medicaid payments comply with federal requirements and that financing arrangements do not circumvent federal matching limitations. This represents CMS's effort to increase transparency and accountability in state Medicaid programs while protecting the fiscal integrity of the federal-state partnership.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Compliance Officer",
+            "Medicaid Reimbursement Directors",
+            "State Medicaid Directors",
+            "Revenue Cycle Directors",
+            "Government Relations Officers"
+          ],
+          "facility_types": [
+            "hospitals",
+            "nursing_homes",
+            "federally_qualified_health_centers",
+            "community health centers",
+            "state-operated facilities",
+            "managed care organizations"
+          ],
+          "departments": [
+            "finance",
+            "compliance",
+            "revenue cycle",
+            "government affairs",
+            "legal",
+            "billing",
+            "contracting"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review all current Medicaid financing arrangements and provider payment agreements for compliance with new CMS guidance",
+            "timeline": "Within 30 days of guidance publication",
+            "owner": "Chief Compliance Officer and CFO",
+            "priority": "high"
+          },
+          {
+            "action": "Assess supplemental payment programs, including UPL payments, DSH payments, and directed payment arrangements for alignment with strengthened oversight requirements",
+            "timeline": "Within 60 days",
+            "owner": "Medicaid Reimbursement Director",
+            "priority": "high"
+          },
+          {
+            "action": "Coordinate with state Medicaid agency to understand state-level implementation plans and reporting requirements",
+            "timeline": "Within 45 days",
+            "owner": "Government Relations Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Update internal policies and procedures to reflect enhanced documentation and transparency requirements for Medicaid financing",
+            "timeline": "Within 90 days",
+            "owner": "Chief Compliance Officer",
+            "priority": "medium"
+          },
+          {
+            "action": "Conduct training for finance and compliance staff on new oversight requirements and documentation standards",
+            "timeline": "Within 120 days",
+            "owner": "Compliance Director",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Enhanced documentation of Medicaid financing arrangements and fund sources",
+          "Increased transparency in provider payment methodologies and supplemental payments",
+          "Compliance with federal matching limitations and prohibition on impermissible funding mechanisms",
+          "Accurate reporting of intergovernmental transfers and certified public expenditures",
+          "Demonstration that payments do not exceed actual costs or established upper payment limits",
+          "Verification that non-federal share sources meet federal requirements"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Varies by organization; potential administrative costs of $50,000-$500,000 for compliance review, documentation enhancement, and system updates; possible reduction in Medicaid revenue if current arrangements are found non-compliant",
+          "revenue_impact": "negative",
+          "areas_affected": [
+            "Medicaid reimbursement",
+            "supplemental payment programs",
+            "DSH payments",
+            "UPL payments",
+            "managed care directed payments",
+            "intergovernmental transfers",
+            "administrative costs"
+          ]
+        },
+        "compliance_deadline": "Not specified - implementation timeline depends on state Medicaid agency response and specific provisions; organizations should begin immediate review",
+        "source_link": "https://www.cms.gov/newsroom/press-releases/cms-issues-guidance-strengthen-oversight-medicaid-financing"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:11:12.572369",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "2026 Medicare Parts A & B Premiums and Deductibles",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+        "date": "2026 Medicare Parts A & B Premiums and Deductibles 2026 Medicare Part D Income-Related Monthly Adjustment Amounts On November 14, 2025, the Centers for Medicare & Medicaid Services (CMS) released the 2026 premiums, deductibles, and coinsurance amounts for the Medicare Part A and Part B programs, and",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS announced the 2026 Medicare Parts A and B premiums, deductibles, and coinsurance amounts on November 14, 2025. This annual announcement affects beneficiary cost-sharing obligations and healthcare provider reimbursement calculations for the upcoming calendar year. The document also references 2026 Medicare Part D Income-Related Monthly Adjustment Amounts (IRMAA), indicating changes to income-based premium structures. Healthcare organizations must update their billing systems, patient financial counseling materials, and revenue cycle processes to reflect these new amounts. The changes will take effect January 1, 2026, requiring coordination across multiple departments to ensure compliance and accurate patient billing.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Revenue Cycle Director",
+            "Patient Financial Services Manager",
+            "Compliance Officer",
+            "Billing Manager",
+            "Registration Staff",
+            "Patient Advocates"
+          ],
+          "facility_types": [
+            "hospital",
+            "ambulatory_surgical_center",
+            "clinic",
+            "physician_practice",
+            "skilled_nursing_facility",
+            "home_health_agency",
+            "dialysis_center"
+          ],
+          "departments": [
+            "billing",
+            "patient_financial_services",
+            "revenue_cycle",
+            "compliance",
+            "registration",
+            "health_information_management",
+            "finance"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Update billing systems and charge masters with 2026 Medicare Part A and Part B deductible and coinsurance amounts",
+            "timeline": "By December 31, 2025",
+            "owner": "Revenue Cycle Director",
+            "priority": "high"
+          },
+          {
+            "action": "Train registration and billing staff on new premium, deductible, and coinsurance amounts for patient counseling",
+            "timeline": "By December 20, 2025",
+            "owner": "Patient Financial Services Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Update patient financial responsibility estimation tools and calculators with 2026 amounts",
+            "timeline": "By December 31, 2025",
+            "owner": "Billing Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Revise patient education materials, website content, and financial counseling scripts to reflect 2026 cost-sharing",
+            "timeline": "By December 31, 2025",
+            "owner": "Patient Advocates",
+            "priority": "medium"
+          },
+          {
+            "action": "Conduct financial impact analysis on expected patient collections and bad debt based on new deductible amounts",
+            "timeline": "By December 15, 2025",
+            "owner": "CFO",
+            "priority": "medium"
+          },
+          {
+            "action": "Verify clearinghouse and claims processing vendor systems are updated with 2026 Medicare amounts",
+            "timeline": "By December 31, 2025",
+            "owner": "Health Information Management Director",
+            "priority": "high"
+          }
+        ],
+        "key_requirements": [
+          "Update all billing and registration systems with 2026 Medicare Part A and Part B premium, deductible, and coinsurance amounts",
+          "Ensure accurate patient financial responsibility calculations beginning January 1, 2026",
+          "Train staff on new cost-sharing amounts for patient communication and financial counseling",
+          "Update patient-facing materials including websites, brochures, and estimation tools",
+          "Coordinate with third-party vendors and clearinghouses to ensure system compatibility",
+          "Implement Part D IRMAA adjustments for applicable beneficiaries",
+          "Maintain compliance with Medicare billing regulations using updated cost-sharing amounts"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Implementation costs estimated at $5,000-$25,000 depending on organization size for system updates, staff training, and materials revision",
+          "revenue_impact": "neutral to negative",
+          "areas_affected": [
+            "patient_collections",
+            "accounts_receivable",
+            "bad_debt_reserves",
+            "revenue_cycle_operations",
+            "cash_flow",
+            "patient_financial_responsibility",
+            "reimbursement_calculations"
+          ]
+        },
+        "compliance_deadline": "January 1, 2026",
+        "source_link": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:11:43.652923",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "CMS Announces New Drug Payment Model to Strengthen Medicaid and Better Serve Vulnerable Americans",
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-announces-new-drug-payment-model-strengthen-medicaid-better-serve-vulnerable-americans",
+        "date": "Date not found",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS has announced a new drug payment model aimed at strengthening the Medicaid program and improving services for vulnerable populations. This initiative represents a significant policy shift in how pharmaceutical products are reimbursed under Medicaid. The model is designed to enhance access to medications while controlling costs and ensuring appropriate utilization. Healthcare organizations participating in Medicaid will need to understand the new payment structure and adjust their billing and compliance processes accordingly. The announcement signals CMS's continued focus on value-based care and cost containment in government healthcare programs.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Pharmacy Officer",
+            "Medicaid Compliance Officer",
+            "Revenue Cycle Director",
+            "Clinical Directors",
+            "CCO"
+          ],
+          "facility_types": [
+            "hospital",
+            "clinic",
+            "federally_qualified_health_center",
+            "community_health_center",
+            "pharmacy",
+            "nursing_home",
+            "long_term_care_facility"
+          ],
+          "departments": [
+            "pharmacy",
+            "billing",
+            "compliance",
+            "revenue_cycle",
+            "finance",
+            "clinical",
+            "medicaid_services"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review full CMS guidance document and model specifications when released",
+            "timeline": "Within 30 days of detailed guidance publication",
+            "owner": "Medicaid Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Assess current drug payment and billing processes for Medicaid patients",
+            "timeline": "Within 60 days",
+            "owner": "Revenue Cycle Director",
+            "priority": "high"
+          },
+          {
+            "action": "Conduct financial impact analysis of new payment model on organization",
+            "timeline": "Within 90 days",
+            "owner": "CFO",
+            "priority": "high"
+          },
+          {
+            "action": "Update pharmacy and billing systems to accommodate new payment structure",
+            "timeline": "Before implementation date",
+            "owner": "IT Director and Chief Pharmacy Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Train staff on new drug payment model requirements and procedures",
+            "timeline": "30 days before implementation",
+            "owner": "Compliance and Pharmacy Leadership",
+            "priority": "medium"
+          },
+          {
+            "action": "Review and update internal policies and procedures for Medicaid drug billing",
+            "timeline": "Before implementation date",
+            "owner": "Compliance Officer",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Compliance with new Medicaid drug payment methodology",
+          "Updates to billing systems and processes for pharmaceutical reimbursement",
+          "Staff training on new payment model requirements",
+          "Documentation and reporting aligned with new CMS specifications",
+          "Potential changes to pharmacy formulary management",
+          "Enhanced monitoring of Medicaid drug utilization and reimbursement"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Variable - depends on organization size, Medicaid patient volume, and current drug payment processes; implementation costs may range from $50,000 to $500,000+ for system updates and training",
+          "revenue_impact": "neutral to negative - payment model reforms typically aim for cost containment which may reduce reimbursement rates",
+          "areas_affected": [
+            "pharmacy_revenue",
+            "medicaid_reimbursement",
+            "drug_purchasing",
+            "billing_operations",
+            "340B_program_if_applicable",
+            "revenue_cycle"
+          ]
+        },
+        "compliance_deadline": "Not specified - awaiting detailed implementation timeline from CMS",
+        "source_link": "https://www.cms.gov/newsroom/press-releases/cms-announces-new-drug-payment-model-strengthen-medicaid-better-serve-vulnerable-americans"
+      },
+      "quality_control": {
+        "quality_score": 80,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:12:13.603917",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "All 50 States Seek to Transform Rural Health with CMS",
+        "url": "https://www.cms.gov/newsroom/press-releases/all-50-states-seek-transform-rural-health-cms",
+        "date": "Date not found",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "This document appears to be a CMS press release regarding a nationwide rural health transformation initiative involving all 50 states. However, the content field is empty, preventing detailed analysis of the specific programs, requirements, or changes being announced. The title suggests a comprehensive rural health initiative coordinated between CMS and state governments, likely involving payment models, access improvements, or regulatory flexibilities for rural healthcare providers.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "CEO",
+            "CCO",
+            "Clinical Directors",
+            "Rural Health Coordinators",
+            "Compliance Officers"
+          ],
+          "facility_types": [
+            "Critical Access Hospitals",
+            "Rural Health Clinics",
+            "Federally Qualified Health Centers",
+            "rural hospitals",
+            "rural clinics"
+          ],
+          "departments": [
+            "billing",
+            "compliance",
+            "clinical",
+            "finance",
+            "operations",
+            "quality improvement"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Access the full press release content from CMS website to review complete program details",
+            "timeline": "Immediate",
+            "owner": "Compliance Officer or Rural Health Coordinator",
+            "priority": "high"
+          },
+          {
+            "action": "Assess facility eligibility for rural health transformation programs mentioned in the announcement",
+            "timeline": "Within 2 weeks of content review",
+            "owner": "CFO and Clinical Directors",
+            "priority": "high"
+          },
+          {
+            "action": "Review state-specific implementation plans and participation requirements",
+            "timeline": "Within 30 days",
+            "owner": "Compliance Officer",
+            "priority": "medium"
+          },
+          {
+            "action": "Evaluate potential financial and operational impacts of participating in transformation initiatives",
+            "timeline": "Within 45 days",
+            "owner": "CFO",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Content unavailable - full document review required to identify specific requirements"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Unable to determine without document content",
+          "revenue_impact": "potentially positive",
+          "areas_affected": [
+            "reimbursement",
+            "billing",
+            "operations",
+            "quality incentives",
+            "value-based care"
+          ]
+        },
+        "compliance_deadline": "Not specified - content unavailable",
+        "source_link": "https://www.cms.gov/newsroom/press-releases/all-50-states-seek-transform-rural-health-cms"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:12:38.358972",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "CMS Modernizes Payment Accuracy and Significantly Cuts Spending Waste",
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-modernizes-payment-accuracy-significantly-cuts-spending-waste",
+        "date": "Date not found",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "This CMS press release announces modernization efforts focused on improving payment accuracy and reducing wasteful spending in healthcare programs. The initiative aims to strengthen oversight mechanisms and implement updated methodologies to detect and prevent improper payments. While specific implementation details are limited in the available content, this represents CMS's ongoing commitment to program integrity and fiscal responsibility. Healthcare organizations should anticipate enhanced scrutiny of billing practices and potential changes to payment validation processes. The modernization likely involves updated audit procedures, data analytics, and compliance monitoring systems.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Compliance Officer",
+            "Revenue Cycle Director",
+            "Clinical Directors",
+            "Billing Manager",
+            "Quality Assurance Director"
+          ],
+          "facility_types": [
+            "hospital",
+            "clinic",
+            "nursing_home",
+            "ambulatory_surgical_center",
+            "home_health_agency",
+            "skilled_nursing_facility"
+          ],
+          "departments": [
+            "billing",
+            "compliance",
+            "revenue_cycle",
+            "clinical_documentation",
+            "finance",
+            "quality_assurance"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Monitor CMS website and LISTSERV for detailed implementation guidance and technical specifications",
+            "timeline": "Ongoing - check weekly",
+            "owner": "Chief Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Review current billing and coding practices for compliance with payment accuracy standards",
+            "timeline": "Within 30 days",
+            "owner": "Revenue Cycle Director",
+            "priority": "high"
+          },
+          {
+            "action": "Conduct internal audit of recent claims to identify potential areas of vulnerability",
+            "timeline": "Within 60 days",
+            "owner": "Compliance Department",
+            "priority": "high"
+          },
+          {
+            "action": "Provide staff training on updated payment accuracy requirements once details are released",
+            "timeline": "Within 90 days of guidance release",
+            "owner": "Billing Manager",
+            "priority": "medium"
+          },
+          {
+            "action": "Assess current documentation practices and implement improvements to support payment accuracy",
+            "timeline": "Within 90 days",
+            "owner": "Clinical Directors",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Enhanced payment accuracy validation and documentation standards",
+          "Compliance with modernized audit and oversight procedures",
+          "Implementation of improved billing accuracy controls",
+          "Potential adoption of new data reporting or validation systems",
+          "Adherence to updated improper payment prevention protocols"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Not specified - potential costs for system updates, staff training, and enhanced compliance infrastructure; range likely $50,000-$500,000+ depending on organization size",
+          "revenue_impact": "negative",
+          "areas_affected": [
+            "billing",
+            "reimbursement",
+            "compliance_operations",
+            "audit_recovery",
+            "revenue_cycle",
+            "claims_processing"
+          ]
+        },
+        "compliance_deadline": "Not specified",
+        "source_link": "https://www.cms.gov/newsroom/press-releases/cms-modernizes-payment-accuracy-significantly-cuts-spending-waste"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:13:06.729827",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Calendar Year (CY) 2026 Medicare Physician Fee Schedule Final Rule (CMS-1832-F)",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/calendar-year-cy-2026-medicare-physician-fee-schedule-final-rule-cms-1832-f",
+        "date": "Calendar Year (CY) 2026 Medicare Physician Fee Schedule Final Rule (CMS-1832-F) On October 31, 2025, the Centers for Medicare & Medicaid Services (CMS) issued a final rule that announces final policy changes for Medicare payments under the Physician Fee Schedule (PFS), and other Medicare Part B",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS issued the Calendar Year 2026 Medicare Physician Fee Schedule Final Rule (CMS-1832-F) on October 31, 2025, announcing final policy changes for Medicare payments under the Physician Fee Schedule and other Medicare Part B services. This rule establishes payment rates and policies that will govern physician reimbursement for services provided during calendar year 2026. The rule impacts how Medicare reimburses physicians and other practitioners for covered services under Part B. Healthcare organizations must prepare for implementation of these payment changes and policy updates effective January 1, 2026.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Financial Officer",
+            "Revenue Cycle Director",
+            "Compliance Officer",
+            "Practice Administrators",
+            "Physician Leaders",
+            "Billing Managers",
+            "Clinical Directors",
+            "Medical Directors"
+          ],
+          "facility_types": [
+            "physician practices",
+            "hospitals",
+            "ambulatory surgical centers",
+            "outpatient clinics",
+            "rural health clinics",
+            "federally qualified health centers",
+            "community health centers",
+            "specialty practices"
+          ],
+          "departments": [
+            "billing",
+            "revenue cycle",
+            "compliance",
+            "finance",
+            "clinical operations",
+            "practice management",
+            "coding",
+            "reimbursement"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review complete final rule documentation to identify all payment rate changes and policy modifications affecting your organization",
+            "timeline": "By November 30, 2025",
+            "owner": "Revenue Cycle Director and Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Update billing systems, fee schedules, and practice management software to reflect CY 2026 payment rates",
+            "timeline": "By December 15, 2025",
+            "owner": "IT Director and Billing Manager",
+            "priority": "high"
+          },
+          {
+            "action": "Conduct financial impact analysis to project revenue changes under new fee schedule rates",
+            "timeline": "By December 1, 2025",
+            "owner": "CFO and Finance Department",
+            "priority": "high"
+          },
+          {
+            "action": "Train billing, coding, and clinical staff on new policies, documentation requirements, and payment changes",
+            "timeline": "By December 20, 2025",
+            "owner": "Compliance Officer and Practice Administrator",
+            "priority": "high"
+          },
+          {
+            "action": "Review and update internal policies and procedures to align with new CMS requirements",
+            "timeline": "By December 31, 2025",
+            "owner": "Compliance Officer and Clinical Directors",
+            "priority": "medium"
+          },
+          {
+            "action": "Communicate changes to physicians and providers regarding documentation and billing requirements",
+            "timeline": "By December 15, 2025",
+            "owner": "Medical Director and Practice Administrator",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Implement CY 2026 Medicare Physician Fee Schedule payment rates effective January 1, 2026",
+          "Update billing and coding systems to reflect new payment policies and rates",
+          "Ensure compliance with revised Medicare Part B payment policies",
+          "Adjust financial projections and budgets based on new reimbursement rates",
+          "Train staff on policy changes and documentation requirements",
+          "Update practice management systems with new fee schedule data",
+          "Review and modify internal compliance programs to address new requirements"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Variable by organization - depends on service mix, patient volume, and specific payment rate changes; implementation costs for system updates estimated at $5,000-$50,000 depending on organization size",
+          "revenue_impact": "Variable - may be positive, negative, or neutral depending on specialty, service mix, and specific payment adjustments in final rule; requires detailed analysis of organization-specific impact",
+          "areas_affected": [
+            "physician reimbursement",
+            "Part B payments",
+            "revenue cycle",
+            "billing operations",
+            "practice revenue",
+            "budget planning",
+            "cash flow",
+            "reimbursement rates"
+          ]
+        },
+        "compliance_deadline": "January 1, 2026",
+        "source_link": "https://www.cms.gov/newsroom/fact-sheets/calendar-year-cy-2026-medicare-physician-fee-schedule-final-rule-cms-1832-f"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:13:37.208951",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Calendar Year (CY) 2026 Medicare Physician Fee Schedule Final Rule (CMS-1832-F) Medicare Shared Savings Program Changes",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/calendar-year-cy-2026-medicare-physician-fee-schedule-final-rule-cms-1832-f-medicare-shared-savings",
+        "date": "Calendar Year (CY) 2026 Medicare Physician Fee Schedule Final Rule (CMS-1832-F) Medicare Shared Savings Program Changes On October 31, 2025, the Centers for Medicare & Medicaid Services (CMS) issued the calendar year (CY) 2026 Medicare Physician Fee Schedule (PFS) final rule (CMS-1832-F) that",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS issued the Calendar Year 2026 Medicare Physician Fee Schedule Final Rule (CMS-1832-F) on October 31, 2025, which includes changes to the Medicare Shared Savings Program. This final rule establishes payment rates and policies for services furnished under the Medicare Physician Fee Schedule for 2026. The rule impacts physician reimbursement, value-based care arrangements, and Accountable Care Organization (ACO) participation in the Shared Savings Program. Organizations participating in or considering participation in Medicare ACOs must review these changes to understand their financial and operational implications for the upcoming calendar year.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Medical Officer",
+            "ACO Leadership",
+            "Revenue Cycle Directors",
+            "Compliance Officers",
+            "Practice Administrators"
+          ],
+          "facility_types": [
+            "physician practices",
+            "hospital systems",
+            "Accountable Care Organizations",
+            "multi-specialty groups",
+            "federally qualified health centers"
+          ],
+          "departments": [
+            "billing",
+            "compliance",
+            "finance",
+            "clinical operations",
+            "quality improvement",
+            "revenue cycle management"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review complete CMS-1832-F final rule to identify specific Medicare Shared Savings Program changes affecting your organization",
+            "timeline": "By December 15, 2025",
+            "owner": "ACO Leadership and Compliance Officers",
+            "priority": "high"
+          },
+          {
+            "action": "Analyze financial impact of 2026 PFS payment rate changes on physician reimbursement and ACO shared savings calculations",
+            "timeline": "By December 31, 2025",
+            "owner": "CFO and Revenue Cycle Directors",
+            "priority": "high"
+          },
+          {
+            "action": "Update billing systems, fee schedules, and revenue projections to reflect CY 2026 payment rates",
+            "timeline": "By December 31, 2025",
+            "owner": "Billing Department and IT",
+            "priority": "high"
+          },
+          {
+            "action": "Train clinical and administrative staff on new Medicare Shared Savings Program requirements and quality measures",
+            "timeline": "By January 15, 2026",
+            "owner": "Clinical Directors and Compliance Officers",
+            "priority": "medium"
+          },
+          {
+            "action": "Assess ACO participation strategy and determine if continued participation remains financially viable under new rules",
+            "timeline": "By January 31, 2026",
+            "owner": "Executive Leadership and CFO",
+            "priority": "high"
+          }
+        ],
+        "key_requirements": [
+          "Implement CY 2026 Medicare Physician Fee Schedule payment rates effective January 1, 2026",
+          "Comply with updated Medicare Shared Savings Program policies and requirements",
+          "Ensure billing systems reflect accurate 2026 fee schedule amounts",
+          "Maintain compliance with ACO quality reporting and performance standards",
+          "Update financial models to account for changes in shared savings calculations"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Variable depending on organization size, specialty mix, and ACO participation status; potential impacts range from minimal to significant based on specific payment rate adjustments and shared savings methodology changes",
+          "revenue_impact": "negative|neutral",
+          "areas_affected": [
+            "physician reimbursement",
+            "ACO shared savings distributions",
+            "revenue cycle operations",
+            "quality incentive payments",
+            "practice profitability"
+          ]
+        },
+        "compliance_deadline": "January 1, 2026",
+        "source_link": "https://www.cms.gov/newsroom/fact-sheets/calendar-year-cy-2026-medicare-physician-fee-schedule-final-rule-cms-1832-f-medicare-shared-savings"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:14:05.329918",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "Plan Year 2026 Marketplace Plans and Prices Fact Sheet",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/plan-year-2026-marketplace-plans-prices-fact-sheet",
+        "date": "Plan Year 2026 Marketplace Plans and Prices Fact Sheet The Health Insurance Marketplace \u00ae Open Enrollment Period for plan year 2026 begins on November 1, 2025, and runs until January 15, 2026. The average HealthCare.gov premium after tax credits is projected to be $50 per month for the lowest cost",
+        "source": "CMS Newsroom",
+        "scraper_type": "cms_newsroom_dynamic"
+      },
+      "primary_analysis": {
+        "detailed_summary": "The Health Insurance Marketplace Open Enrollment Period for plan year 2026 runs from November 1, 2025, through January 15, 2026. The average HealthCare.gov premium after tax credits is projected to be $50 per month for the lowest cost plans. This fact sheet provides information about marketplace plan availability and pricing for consumers seeking coverage through the federal exchange. Healthcare organizations should prepare for patient inquiries about coverage options and understand the insurance landscape for their patient population. The enrollment period represents a critical window for uninsured and underinsured individuals to obtain coverage.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Patient Financial Services Director",
+            "Revenue Cycle Manager",
+            "Patient Access Coordinator",
+            "Compliance Officer",
+            "Community Outreach Director"
+          ],
+          "facility_types": [
+            "hospital",
+            "clinic",
+            "federally_qualified_health_center",
+            "ambulatory_surgery_center",
+            "urgent_care",
+            "community_health_center"
+          ],
+          "departments": [
+            "patient_registration",
+            "financial_counseling",
+            "billing",
+            "revenue_cycle",
+            "patient_access",
+            "community_relations",
+            "compliance"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Train patient access and financial counseling staff on 2026 Marketplace plan options, enrollment periods, and premium assistance availability",
+            "timeline": "By October 15, 2025",
+            "owner": "Patient Financial Services Director",
+            "priority": "high"
+          },
+          {
+            "action": "Update patient registration workflows and scripts to identify uninsured patients and provide Marketplace enrollment information during the open enrollment period",
+            "timeline": "By October 31, 2025",
+            "owner": "Patient Access Coordinator",
+            "priority": "high"
+          },
+          {
+            "action": "Establish partnerships or information-sharing protocols with certified Marketplace navigators and enrollment assisters to facilitate patient referrals",
+            "timeline": "By November 1, 2025",
+            "owner": "Community Outreach Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Review and update charity care and financial assistance policies to account for Marketplace coverage availability during open enrollment",
+            "timeline": "By October 31, 2025",
+            "owner": "CFO",
+            "priority": "medium"
+          },
+          {
+            "action": "Communicate open enrollment dates and resources to patients through website, patient portal, signage, and direct outreach to uninsured patient populations",
+            "timeline": "Launch by November 1, 2025",
+            "owner": "Community Outreach Director",
+            "priority": "high"
+          },
+          {
+            "action": "Monitor payer mix changes and insurance coverage rates among patient population throughout and after open enrollment period",
+            "timeline": "November 2025 - March 2026",
+            "owner": "Revenue Cycle Manager",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Inform eligible patients about Marketplace open enrollment period running November 1, 2025 through January 15, 2026",
+          "Provide information about average premium costs after tax credits ($50/month for lowest cost plans)",
+          "Ensure staff can direct patients to HealthCare.gov and enrollment resources",
+          "Maintain awareness of coverage options available to uninsured and underinsured patient populations",
+          "Support patient enrollment efforts to reduce uninsured rates and improve revenue cycle outcomes"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Minimal direct costs; staff training and outreach materials estimated at $2,000-$10,000 depending on facility size",
+          "revenue_impact": "positive",
+          "areas_affected": [
+            "revenue_cycle",
+            "bad_debt_reduction",
+            "charity_care",
+            "reimbursement",
+            "patient_collections",
+            "payer_mix_optimization"
+          ]
+        },
+        "compliance_deadline": "November 1, 2025 (Open Enrollment begins); January 15, 2026 (Open Enrollment ends)",
+        "source_link": "https://www.cms.gov/newsroom/fact-sheets/plan-year-2026-marketplace-plans-prices-fact-sheet"
+      },
+      "quality_control": {
+        "quality_score": 60.0,
+        "quality_grade": "Good",
+        "safe_to_use": true,
+        "factual_accuracy": 0.0
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:14:36.593461",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "HHS Advances Women\u2019s Health, Removes Misleading FDA Warnings on Hormone Replacement Therapy",
+        "url": "https://www.hhs.gov/press-room/hhs-advances-womens-health-removes-misleading-fda-warnings-hormone-replacement-therapy.html",
+        "date": "November 10, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "HHS announced the removal of misleading FDA warnings on hormone replacement therapy (HRT) as part of an initiative to advance women's health. This regulatory change suggests a shift in the federal government's position on HRT safety communications, potentially affecting prescribing practices, patient counseling requirements, and informed consent processes. The announcement indicates that previous warnings may have been overstated or mischaracterized, which could impact clinical guidelines and treatment protocols for menopausal women. Healthcare facilities will need to review and update their patient education materials, prescribing protocols, and risk communication strategies related to HRT.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Chief Medical Officer",
+            "Chief Compliance Officer",
+            "OB/GYN Department Heads",
+            "Pharmacy Directors",
+            "Risk Management Directors",
+            "Patient Education Coordinators",
+            "Clinical Directors"
+          ],
+          "facility_types": [
+            "hospitals",
+            "outpatient clinics",
+            "women's health centers",
+            "primary care practices",
+            "specialty clinics",
+            "ambulatory surgery centers"
+          ],
+          "departments": [
+            "obstetrics and gynecology",
+            "endocrinology",
+            "pharmacy",
+            "compliance",
+            "risk management",
+            "patient education",
+            "quality assurance",
+            "medical staff services"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Monitor FDA for official guidance documents and updated labeling requirements for HRT products",
+            "timeline": "Immediate and ongoing",
+            "owner": "Chief Compliance Officer / Pharmacy Director",
+            "priority": "high"
+          },
+          {
+            "action": "Review and update all patient education materials, consent forms, and counseling protocols related to hormone replacement therapy",
+            "timeline": "Within 30-60 days of FDA guidance release",
+            "owner": "Patient Education Coordinator / Clinical Directors",
+            "priority": "high"
+          },
+          {
+            "action": "Convene medical staff committee to review clinical protocols and prescribing guidelines for HRT in light of regulatory changes",
+            "timeline": "Within 45 days",
+            "owner": "Chief Medical Officer / OB/GYN Department Head",
+            "priority": "high"
+          },
+          {
+            "action": "Provide education and training to prescribing physicians, nurses, and pharmacists on updated HRT guidance and communication strategies",
+            "timeline": "Within 60-90 days",
+            "owner": "Medical Education / Clinical Directors",
+            "priority": "medium"
+          },
+          {
+            "action": "Review malpractice insurance coverage and risk management protocols related to HRT prescribing",
+            "timeline": "Within 90 days",
+            "owner": "Risk Management Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Update electronic health record templates, order sets, and clinical decision support tools for HRT prescribing",
+            "timeline": "Within 90 days",
+            "owner": "Clinical Informatics / IT Department",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Await and implement forthcoming FDA guidance on revised HRT labeling and warnings",
+          "Update patient informed consent processes to reflect current regulatory position on HRT risks and benefits",
+          "Revise clinical protocols and prescribing guidelines for hormone replacement therapy",
+          "Modify patient education materials to align with updated federal guidance",
+          "Ensure prescribing physicians are informed of regulatory changes and updated risk communication strategies",
+          "Review and update pharmacy dispensing protocols and patient counseling requirements",
+          "Document all policy and protocol changes in compliance with quality assurance standards"
+        ],
+        "financial_impact": {
+          "estimated_cost": "$5,000-$25,000 for materials updates, staff training, EHR modifications, and compliance review depending on facility size",
+          "revenue_impact": "potentially positive",
+          "areas_affected": [
+            "patient education materials production",
+            "staff training costs",
+            "EHR system updates",
+            "potential increased HRT prescribing volume",
+            "pharmacy revenue",
+            "women's health service line growth"
+          ]
+        },
+        "compliance_deadline": "Not specified - awaiting formal FDA guidance and implementation timeline",
+        "source_link": "https://www.hhs.gov/press-room/hhs-advances-womens-health-removes-misleading-fda-warnings-hormone-replacement-therapy.html"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:15:10.250890",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "CMS Announces New Drug Payment Model to Strengthen Medicaid and Better Serve Vulnerable Americans",
+        "url": "https://www.hhs.gov/press-room/cms-announces-new-drug-payment-model-to-better-serve-vulnerable-americans.html",
+        "date": "November 6, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "CMS has announced a new drug payment model specifically designed to strengthen Medicaid and improve services for vulnerable populations. This initiative represents a significant policy shift in how pharmaceutical reimbursements will be structured within the Medicaid program. The model aims to enhance access to medications while controlling costs for beneficiaries who rely on Medicaid coverage. Healthcare organizations serving Medicaid populations will need to understand and adapt to the new payment structure to ensure continued reimbursement and compliance. The announcement signals CMS's continued focus on value-based care and cost containment in government healthcare programs.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Pharmacy Officer",
+            "Medicaid Compliance Officer",
+            "Revenue Cycle Director",
+            "Clinical Directors",
+            "CCO"
+          ],
+          "facility_types": [
+            "hospital",
+            "clinic",
+            "federally qualified health centers",
+            "community health centers",
+            "nursing_home",
+            "long-term care facilities",
+            "retail pharmacies"
+          ],
+          "departments": [
+            "pharmacy",
+            "billing",
+            "compliance",
+            "revenue cycle",
+            "finance",
+            "clinical operations",
+            "managed care contracting"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Obtain and review complete CMS guidance document on new drug payment model specifications",
+            "timeline": "Within 2 weeks of full document release",
+            "owner": "Chief Pharmacy Officer and Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Conduct financial impact analysis on current Medicaid drug reimbursement revenue",
+            "timeline": "Within 30 days",
+            "owner": "CFO and Revenue Cycle Director",
+            "priority": "high"
+          },
+          {
+            "action": "Assess pharmacy inventory and formulary alignment with new payment model requirements",
+            "timeline": "Within 45 days",
+            "owner": "Chief Pharmacy Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Update billing systems and processes to accommodate new payment structure",
+            "timeline": "Before implementation date",
+            "owner": "Revenue Cycle Director and IT Director",
+            "priority": "high"
+          },
+          {
+            "action": "Train pharmacy, billing, and clinical staff on new model requirements and documentation",
+            "timeline": "60 days before implementation",
+            "owner": "Compliance Officer and Clinical Directors",
+            "priority": "medium"
+          },
+          {
+            "action": "Review and update contracts with pharmacy benefit managers and drug wholesalers",
+            "timeline": "Within 60 days",
+            "owner": "CFO and Contracting Department",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Compliance with new Medicaid drug payment methodology and reimbursement structure",
+          "Adaptation of billing and claims submission processes for Medicaid pharmaceutical services",
+          "Documentation requirements for drug dispensing and administration under new model",
+          "Potential formulary adjustments to align with payment model incentives",
+          "Reporting and data submission requirements to CMS for Medicaid drug utilization",
+          "Staff training on new payment model policies and procedures"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Variable depending on Medicaid patient volume; implementation costs estimated at $50,000-$500,000 for system updates, training, and process redesign",
+          "revenue_impact": "neutral to negative",
+          "areas_affected": [
+            "pharmacy reimbursement",
+            "Medicaid revenue",
+            "drug acquisition costs",
+            "billing operations",
+            "340B program revenue",
+            "managed care contracts"
+          ]
+        },
+        "compliance_deadline": "Not specified - awaiting full implementation timeline from CMS",
+        "source_link": "https://www.hhs.gov/press-room/cms-announces-new-drug-payment-model-to-better-serve-vulnerable-americans.html"
+      },
+      "quality_control": {
+        "quality_score": 80,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:15:38.507936",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "All 50 States Seek to Transform Rural Health with CMS",
+        "url": "https://www.hhs.gov/press-room/all-50-states-seek-transform-rural-health-cms.html",
+        "date": "November 5, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "All 50 states have expressed interest in participating in a CMS initiative to transform rural healthcare delivery. This unprecedented nationwide engagement signals a major shift in rural health policy and payment models. The initiative likely involves alternative payment arrangements, care delivery innovations, and infrastructure improvements for rural healthcare facilities. This represents a significant opportunity for rural providers to access new funding streams and modernize care delivery models. Healthcare organizations in rural areas should prepare for potential changes to reimbursement structures and operational requirements.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "CEO",
+            "CCO",
+            "Clinical Directors",
+            "Rural Health Directors",
+            "Compliance Officers",
+            "Revenue Cycle Directors"
+          ],
+          "facility_types": [
+            "rural hospitals",
+            "critical access hospitals",
+            "rural health clinics",
+            "federally qualified health centers",
+            "community health centers",
+            "rural nursing homes"
+          ],
+          "departments": [
+            "billing",
+            "compliance",
+            "clinical operations",
+            "finance",
+            "strategic planning",
+            "quality improvement"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Monitor CMS and state health department announcements for specific program details and application requirements",
+            "timeline": "Ongoing through Q4 2025",
+            "owner": "Chief Strategy Officer or Rural Health Director",
+            "priority": "high"
+          },
+          {
+            "action": "Assess organization's eligibility and readiness for rural transformation initiatives",
+            "timeline": "Within 30 days of program details release",
+            "owner": "Executive Leadership Team",
+            "priority": "high"
+          },
+          {
+            "action": "Convene cross-functional team to evaluate potential participation in state-specific rural health transformation programs",
+            "timeline": "Within 45 days",
+            "owner": "CFO and Chief Clinical Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Review current rural health reimbursement models and identify gaps that transformation initiatives may address",
+            "timeline": "Within 60 days",
+            "owner": "Revenue Cycle Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Engage with state hospital associations and rural health networks to understand collaborative opportunities",
+            "timeline": "Ongoing",
+            "owner": "CEO or Government Relations Director",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Participation in state-specific rural health transformation programs (details pending)",
+          "Potential adoption of alternative payment models for rural care delivery",
+          "Compliance with new rural health quality metrics and reporting requirements",
+          "Infrastructure and technology upgrades to support transformed care delivery models",
+          "Engagement with state Medicaid agencies and CMS Innovation Center initiatives",
+          "Documentation and reporting of rural health outcomes and performance measures"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Not specified - will vary by state program and facility participation level; potential implementation costs for technology, staffing, and infrastructure improvements",
+          "revenue_impact": "positive",
+          "areas_affected": [
+            "reimbursement rates",
+            "alternative payment models",
+            "value-based care incentives",
+            "rural health grants",
+            "infrastructure funding",
+            "operational subsidies"
+          ]
+        },
+        "compliance_deadline": "Not specified - awaiting state-specific program announcements and implementation timelines",
+        "source_link": "https://www.hhs.gov/press-room/all-50-states-seek-transform-rural-health-cms.html"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:16:08.643974",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "FDA Acts to Protect Children from Unapproved Fluoride Drug Products",
+        "url": "https://www.hhs.gov/press-room/fda-protect-children-unapproved-fluoride-drug-products.html",
+        "date": "October 31, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "The FDA has taken regulatory action against unapproved fluoride drug products marketed for children, effective October 31, 2025. This enforcement action targets manufacturers and distributors of fluoride supplements and treatments that lack proper FDA approval, particularly those intended for pediatric use. Healthcare facilities must immediately review their formularies and procurement processes to ensure all fluoride products used for children have appropriate FDA approval. Facilities using unapproved products face potential regulatory penalties and must transition to FDA-approved alternatives. This action reflects heightened FDA scrutiny of pediatric drug safety and unapproved pharmaceutical products.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Chief Pharmacy Officer",
+            "Chief Compliance Officer",
+            "Pediatric Clinical Directors",
+            "Chief Medical Officer",
+            "Procurement Directors",
+            "Risk Management Officers"
+          ],
+          "facility_types": [
+            "children's hospitals",
+            "pediatric clinics",
+            "dental clinics",
+            "family practice clinics",
+            "community health centers",
+            "hospital pediatric departments"
+          ],
+          "departments": [
+            "pharmacy",
+            "pediatrics",
+            "dentistry",
+            "compliance",
+            "procurement",
+            "quality assurance",
+            "risk management"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Conduct immediate audit of all fluoride drug products in formulary and inventory, specifically those used for pediatric patients",
+            "timeline": "Within 7 days of announcement (by November 7, 2025)",
+            "owner": "Chief Pharmacy Officer with Compliance Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Identify and remove all unapproved fluoride products from pediatric use areas and update formulary restrictions",
+            "timeline": "Within 14 days (by November 14, 2025)",
+            "owner": "Pharmacy Director",
+            "priority": "high"
+          },
+          {
+            "action": "Review and update procurement policies to include FDA approval verification for all fluoride products intended for children",
+            "timeline": "Within 30 days (by November 30, 2025)",
+            "owner": "Procurement Director with Compliance",
+            "priority": "high"
+          },
+          {
+            "action": "Notify all prescribing physicians and dentists about FDA action and provide list of approved fluoride alternatives",
+            "timeline": "Within 10 days (by November 10, 2025)",
+            "owner": "Chief Medical Officer and Pharmacy Director",
+            "priority": "high"
+          },
+          {
+            "action": "Implement staff training on FDA-approved fluoride products and documentation requirements for pediatric patients",
+            "timeline": "Within 45 days (by December 15, 2025)",
+            "owner": "Clinical Education Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Review patient records for past 12 months to identify children who received unapproved fluoride products and assess need for notification",
+            "timeline": "Within 60 days (by December 30, 2025)",
+            "owner": "Risk Management Officer with Legal Counsel",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Immediate discontinuation of all unapproved fluoride drug products for pediatric use",
+          "Verification that all fluoride products used for children have current FDA approval",
+          "Updated formulary management to exclude unapproved fluoride preparations",
+          "Enhanced procurement controls requiring FDA approval verification before purchase",
+          "Documentation of compliance with FDA enforcement action",
+          "Staff education on approved fluoride products and proper prescribing practices",
+          "Potential adverse event reporting for any harm related to unapproved products",
+          "Maintenance of records demonstrating transition to approved products"
+        ],
+        "financial_impact": {
+          "estimated_cost": "$15,000-$75,000 depending on facility size (includes product replacement, staff training, audit costs, potential disposal of unapproved inventory, and system updates)",
+          "revenue_impact": "neutral to slightly negative",
+          "areas_affected": [
+            "pharmacy inventory write-offs",
+            "procurement system modifications",
+            "compliance audit costs",
+            "staff training expenses",
+            "potential legal/risk management costs if prior use of unapproved products",
+            "formulary management system updates"
+          ]
+        },
+        "compliance_deadline": "Immediate (October 31, 2025) - enforcement action is effective immediately",
+        "source_link": "https://www.hhs.gov/press-room/fda-protect-children-unapproved-fluoride-drug-products.html"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:16:40.407427",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "FDA Moves to Accelerate Biosimilar Development and Lower Drug Costs",
+        "url": "https://www.hhs.gov/press-room/fda-accelerates-biosimilar-development-and-lowers-drug-costs.html",
+        "date": "October 29, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "The FDA is implementing new measures to accelerate the development and approval of biosimilar drugs, which are lower-cost alternatives to expensive biologic medications. This initiative aims to increase market competition and reduce drug costs for patients and healthcare systems. The policy changes streamline the regulatory pathway for biosimilar manufacturers while maintaining safety and efficacy standards. Healthcare facilities can expect expanded access to cost-effective treatment options across multiple therapeutic areas. This represents a significant shift in the pharmaceutical landscape that will impact procurement, formulary management, and patient care delivery.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "CFO",
+            "Chief Pharmacy Officer",
+            "Clinical Directors",
+            "Procurement Directors",
+            "CCO",
+            "Medical Directors",
+            "Quality Assurance Officers"
+          ],
+          "facility_types": [
+            "hospital",
+            "clinic",
+            "ambulatory surgery center",
+            "infusion center",
+            "specialty pharmacy",
+            "nursing_home",
+            "oncology center"
+          ],
+          "departments": [
+            "pharmacy",
+            "procurement",
+            "finance",
+            "clinical operations",
+            "compliance",
+            "billing",
+            "revenue cycle",
+            "therapeutics committee"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review current biologic drug utilization and identify opportunities for biosimilar substitution",
+            "timeline": "Within 60 days",
+            "owner": "Chief Pharmacy Officer",
+            "priority": "high"
+          },
+          {
+            "action": "Update formulary policies to incorporate biosimilar evaluation criteria and substitution protocols",
+            "timeline": "Within 90 days",
+            "owner": "Pharmacy & Therapeutics Committee",
+            "priority": "high"
+          },
+          {
+            "action": "Conduct financial analysis of potential cost savings from biosimilar adoption",
+            "timeline": "Within 45 days",
+            "owner": "CFO",
+            "priority": "high"
+          },
+          {
+            "action": "Develop clinician education program on biosimilar safety, efficacy, and interchangeability",
+            "timeline": "Within 90 days",
+            "owner": "Clinical Directors",
+            "priority": "medium"
+          },
+          {
+            "action": "Review and update procurement contracts with pharmaceutical suppliers to include biosimilar options",
+            "timeline": "Within 120 days",
+            "owner": "Procurement Directors",
+            "priority": "medium"
+          },
+          {
+            "action": "Assess billing and coding requirements for biosimilar products",
+            "timeline": "Within 60 days",
+            "owner": "Revenue Cycle Director",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Monitor FDA guidance updates on biosimilar approval pathways and interchangeability designations",
+          "Establish clinical protocols for transitioning patients from reference biologics to biosimilars",
+          "Implement tracking systems to monitor biosimilar utilization and clinical outcomes",
+          "Update pharmacy information systems to accommodate biosimilar products and substitution rules",
+          "Ensure compliance with state-level biosimilar substitution laws and notification requirements",
+          "Develop patient communication materials explaining biosimilar medications",
+          "Train clinical and pharmacy staff on biosimilar prescribing and dispensing practices"
+        ],
+        "financial_impact": {
+          "estimated_cost": "$50,000-$150,000 for implementation (system updates, training, policy development)",
+          "revenue_impact": "positive",
+          "areas_affected": [
+            "drug procurement costs",
+            "pharmacy budget",
+            "patient care costs",
+            "reimbursement rates",
+            "340B program savings",
+            "contract negotiations",
+            "formulary management"
+          ]
+        },
+        "compliance_deadline": "Not specified",
+        "source_link": "https://www.hhs.gov/press-room/fda-accelerates-biosimilar-development-and-lowers-drug-costs.html"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:17:07.991615",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "FDA Awards First-Ever National Priority Vouchers to Nine Sponsors",
+        "url": "https://www.hhs.gov/press-room/fda-awards-first-ever-national-priority-vouchers-nine-sponsors.html",
+        "date": "October 16, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "The FDA has awarded the first-ever National Priority Vouchers to nine pharmaceutical sponsors under a new incentive program designed to encourage development of drugs addressing critical public health needs. These vouchers can be used to obtain priority review for a future drug application or sold to other companies, potentially generating significant revenue. This represents a novel regulatory pathway that may accelerate drug development timelines and create new market dynamics in pharmaceutical innovation. The program aims to stimulate investment in underserved therapeutic areas by providing tangible financial incentives through expedited regulatory review.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Chief Pharmacy Officer",
+            "CFO",
+            "Chief Medical Officer",
+            "Clinical Research Directors",
+            "Regulatory Affairs Officers"
+          ],
+          "facility_types": [
+            "hospital",
+            "academic medical center",
+            "research institution",
+            "specialty pharmacy",
+            "integrated health system"
+          ],
+          "departments": [
+            "pharmacy",
+            "clinical research",
+            "finance",
+            "regulatory affairs",
+            "drug formulary committee"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Monitor FDA guidance on National Priority Voucher program implementation and eligible therapeutic areas",
+            "timeline": "Within 30 days",
+            "owner": "Chief Pharmacy Officer / Regulatory Affairs Director",
+            "priority": "medium"
+          },
+          {
+            "action": "Assess potential impact on drug pipeline and formulary planning for priority review drugs",
+            "timeline": "Within 60 days",
+            "owner": "Pharmacy & Therapeutics Committee",
+            "priority": "medium"
+          },
+          {
+            "action": "Review institutional research partnerships with voucher-holding sponsors for potential early access opportunities",
+            "timeline": "Within 90 days",
+            "owner": "Clinical Research Director",
+            "priority": "low"
+          },
+          {
+            "action": "Evaluate financial implications of accelerated drug approvals on budget planning",
+            "timeline": "Q4 2025",
+            "owner": "CFO / Finance Department",
+            "priority": "medium"
+          }
+        ],
+        "key_requirements": [
+          "Awareness of new priority review voucher program and its impact on drug approval timelines",
+          "Understanding of which pharmaceutical sponsors received vouchers and their development pipelines",
+          "Monitoring for drugs that may receive expedited approval through voucher utilization",
+          "Preparation for potential earlier-than-expected market entry of novel therapeutics",
+          "Assessment of formulary and budget implications for priority-reviewed medications"
+        ],
+        "financial_impact": {
+          "estimated_cost": "Indirect impact - potential for earlier adoption of high-cost specialty medications; voucher-expedited drugs may enter market 4-6 months earlier than standard timeline, affecting budget planning cycles",
+          "revenue_impact": "neutral",
+          "areas_affected": [
+            "pharmacy budget",
+            "drug formulary management",
+            "clinical trial participation revenue",
+            "specialty medication reimbursement"
+          ]
+        },
+        "compliance_deadline": "Not specified",
+        "source_link": "https://www.hhs.gov/press-room/fda-awards-first-ever-national-priority-vouchers-nine-sponsors.html"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:17:36.750335",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    },
+    {
+      "document_info": {
+        "title": "CDC Immunization Schedule Adopts Individual-Based Decision-Making for COVID-19 and Standalone Vaccination for Chickenpox in Toddlers",
+        "url": "https://www.hhs.gov/press-room/cdc-immunization-schedule-individual-decision-covid19-standalone-chickenpox-toddlers.html",
+        "date": "October 6, 2025",
+        "source": "HHS Press Room",
+        "scraper_type": "hhs_documents"
+      },
+      "primary_analysis": {
+        "detailed_summary": "The CDC has updated its immunization schedule to incorporate individual-based decision-making for COVID-19 vaccinations and introduce standalone chickenpox (varicella) vaccination protocols for toddlers. This represents a shift from universal recommendations to personalized vaccination approaches for COVID-19, while modifying the administration schedule for varicella vaccines in the toddler age group. Healthcare facilities must update their immunization protocols, staff training, and patient counseling procedures to align with these new guidelines. The changes affect vaccine inventory management, clinical workflows, and documentation requirements across pediatric and family medicine settings.",
+        "who_this_affects": {
+          "healthcare_roles": [
+            "Chief Medical Officer",
+            "Chief Compliance Officer",
+            "Clinical Directors",
+            "Pediatric Department Heads",
+            "Pharmacy Directors",
+            "Nursing Leadership",
+            "Quality Assurance Officers"
+          ],
+          "facility_types": [
+            "hospitals",
+            "pediatric clinics",
+            "family medicine practices",
+            "community health centers",
+            "urgent care centers",
+            "public health departments",
+            "retail clinics"
+          ],
+          "departments": [
+            "pediatrics",
+            "family medicine",
+            "pharmacy",
+            "nursing",
+            "compliance",
+            "quality assurance",
+            "medical records",
+            "patient education"
+          ]
+        },
+        "next_steps": [
+          {
+            "action": "Review and update immunization protocols to reflect individual-based COVID-19 decision-making framework and standalone chickenpox vaccination for toddlers",
+            "timeline": "Within 30 days of October 6, 2025",
+            "owner": "Chief Medical Officer and Clinical Directors",
+            "priority": "high"
+          },
+          {
+            "action": "Train clinical staff on new shared decision-making processes for COVID-19 vaccinations and updated varicella administration protocols",
+            "timeline": "Within 45 days of October 6, 2025",
+            "owner": "Nursing Leadership and Medical Education Coordinator",
+            "priority": "high"
+          },
+          {
+            "action": "Update electronic health record (EHR) systems and immunization registries to accommodate new scheduling and documentation requirements",
+            "timeline": "Within 60 days of October 6, 2025",
+            "owner": "IT Director and Clinical Informatics",
+            "priority": "high"
+          },
+          {
+            "action": "Revise patient education materials and consent forms to reflect individualized COVID-19 vaccination approach and new chickenpox protocols",
+            "timeline": "Within 30 days of October 6, 2025",
+            "owner": "Patient Education Coordinator and Compliance Officer",
+            "priority": "medium"
+          },
+          {
+            "action": "Assess and adjust vaccine inventory management for standalone varicella vaccines and COVID-19 vaccines based on anticipated demand changes",
+            "timeline": "Within 45 days of October 6, 2025",
+            "owner": "Pharmacy Director and Supply Chain Manager",
+            "priority": "medium"
+          },
+          {
+            "action": "Review billing and coding procedures to ensure proper reimbursement for individualized vaccination counseling and new vaccine administration patterns",
+            "timeline": "Within 60 days of October 6, 2025",
+            "owner": "Revenue Cycle Director and Coding Manager",
+            "priority": "medium"
+          },
+          {
+            "action": "Communicate changes to referring providers, community partners, and public health departments",
+            "timeline": "Within 30 days of October 6, 2025",
+            "owner": "Chief Medical Officer and Community Relations",
+            "priority": "low"
+          }
+        ],
+        "key_requirements": [
+          "Implement individual-based decision-making framework for COVID-19 vaccinations rather than universal recommendations",
+          "Adopt standalone chickenpox vaccination protocols for toddlers as specified in updated CDC schedule",
+          "Update clinical protocols and standard operating procedures to reflect new immunization guidelines",
+          "Train healthcare providers on shared decision-making approaches for COVID-19 vaccination discussions",
+          "Modify EHR systems and immunization information systems to capture individualized vaccination decisions",
+          "Revise patient counseling materials to support informed decision-making for COVID-19 vaccines",
+          "Ensure proper documentation of clinical decision-making rationale for COVID-19 vaccinations",
+          "Adjust vaccine inventory and ordering processes for standalone varicella vaccines",
+          "Update quality metrics and reporting mechanisms to align with new immunization standards",
+          "Maintain compliance with state immunization registry reporting requirements under new protocols"
+        ],
+        "financial_impact": {
+          "estimated_cost": "$15,000-$75,000 depending on facility size for EHR updates, staff training, materials revision, and workflow modifications",
+          "revenue_impact": "neutral to slightly positive",
+          "areas_affected": [
+            "vaccine procurement and inventory management",
+            "billing and coding for extended counseling time",
+            "reimbursement for individualized clinical decision-making",
+            "potential changes in vaccine administration volume",
+            "staff time allocation for patient education",
+            "EHR system modifications"
+          ]
+        },
+        "compliance_deadline": "Not specified - implementation should begin immediately with full compliance expected within 60-90 days",
+        "source_link": "https://www.hhs.gov/press-room/cdc-immunization-schedule-individual-decision-covid19-standalone-chickenpox-toddlers.html"
+      },
+      "quality_control": {
+        "quality_score": 100,
+        "quality_grade": "Excellent",
+        "safe_to_use": true,
+        "factual_accuracy": 50
+      },
+      "metadata": {
+        "analyzed_at": "2025-11-18T12:18:12.951318",
+        "models_used": [
+          "claude-sonnet-4-5",
+          "gpt-4o",
+          "gemini-2.0-flash"
+        ]
+      }
+    }
+  ]
+}
