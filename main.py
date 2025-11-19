@@ -260,7 +260,7 @@ def health():
     return {"status": "ok", "timestamp": datetime.now().isoformat()}
 
 @app.get("/api/changes/recent", response_model=List[RegulatoryChange])
-async def get_recent_changes(limit: int = 20):
+async def get_recent_changes(limit: int = 50):
     """Get recent regulatory changes from all scraper types"""
     
     data = load_latest_analysis()
