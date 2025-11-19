@@ -311,7 +311,7 @@ async def get_changes_by_department(department: str, limit: int = 10):
     return filtered[:limit]
 
 @app.get("/api/changes/by-scraper/{scraper_type}")
-async def get_changes_by_scraper(scraper_type: str, limit: int = 20):
+async def get_changes_by_scraper(scraper_type: str, limit: int = 50):
     """Filter by scraper type (newsroom, latest_updates, etc)"""
     all_changes = await get_recent_changes(limit=100)
     filtered = [
