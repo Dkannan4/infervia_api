@@ -7,7 +7,8 @@ from datetime import datetime
 from pathlib import Path
 import re
 
-app = FastAPI(title="Infervia API with Citations", version="3.2")
+
+app = FastAPI(title="Infervia API with Citations", version="3.3")
 
 app.add_middleware(
     CORSMiddleware,
@@ -78,6 +79,7 @@ class RegulatoryChange(BaseModel):
     document_id: int
     title: str
     url: str
+    pdf_url: Optional[str] = None  # ← ADDED: S3-hosted PDF URL for in-app viewing
     source: str
     date: Optional[str]
     scraper_type: Optional[str] = None
@@ -157,6 +159,7 @@ def parse_document(doc_data: Dict, idx: int) -> RegulatoryChange:
     # Parse basic info
     title = doc_info.get("title", "Untitled")
     url = doc_info.get("url", "")
+    pdf_url = doc_info.get("pdf_url")  # ← ADDED: Extract PDF URL from S3
     
     # Parse citations
     citations_raw = primary.get("source_citations", [])
@@ -232,6 +235,7 @@ def parse_document(doc_data: Dict, idx: int) -> RegulatoryChange:
         document_id=idx,
         title=title,
         url=url,
+        pdf_url=pdf_url,  # ← ADDED: Pass PDF URL to response
         source=doc_info.get("source", "CMS"),
         date=doc_info.get("date", ""),
         scraper_type=doc_info.get("scraper_type"),
@@ -252,18 +256,19 @@ def root():
     return {
         "status": "healthy",
         "service": "Infervia API with Source Citations",
-        "version": "3.2.0",
+        "version": "3.3.0",
         "features": [
             "Source evidence extraction",
             "Citation tracking with confidence scores",
             "Page numbers and section references",
-            "Grounding score calculation"
+            "Grounding score calculation",
+            "S3-hosted PDF URLs for in-app viewing"  # ← ADDED
         ]
     }
 
 @app.get("/api/changes/recent", response_model=List[RegulatoryChange])
 async def get_recent_changes(limit: int = 50):
-    """Get recent changes with full citation data"""
+    """Get recent changes with full citation data and PDF URLs"""
     
     data = load_latest_analysis()
     if not data:
@@ -308,7 +313,7 @@ async def get_citations_by_type(doc_id: int, claim_type: str):
 async def get_dashboard_stats():
     """Dashboard with grounding scores"""
     
-    changes = await get_recent_changes(limit=50)
+    changes = await get_recent_changes(limit=100)
     
     facility_counts = {}
     dept_counts = {}
